@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77c75a06-40a8-49bd-9d1a-35b0289fdf58" name="Default" comment="" />
+    <list default="true" id="77c75a06-40a8-49bd-9d1a-35b0289fdf58" name="Default" comment="update resource (pikachu images dir) and put them into square component.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_10.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_11.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_12.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_13.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_14.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_15.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_16.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_17.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_19.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_20.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_21.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_23.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_25.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_26.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_27.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_28.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_29.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_30.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_31.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_32.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_33.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_34.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_35.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_37.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_38.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_39.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_40.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_41.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_42.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_43.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_44.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_45.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_46.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_47.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_49.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_51.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_52.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_53.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_54.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_55.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_56.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_57.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_58.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_59.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_60.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_61.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_62.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_63.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_64.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_65.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_66.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_67.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_68.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_69.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_70.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_71.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_72.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_73.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_74.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_75.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_76.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_77.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_78.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_79.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_80.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_81.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_82.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_83.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_84.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_85.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_86.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_87.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_88.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_89.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_9.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_90.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_91.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_92.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_93.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_94.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_95.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_96.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_97.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/images/pokemon_98.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -17,18 +119,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="235">
+              <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -43,6 +135,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>renderSquare(0)</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>renderSquare(3)</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -53,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/components/square.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/board.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
@@ -103,7 +203,7 @@
             <path>
               <item name="pikachu" type="b2602c69:ProjectViewProjectNode" />
               <item name="pikachu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -117,7 +217,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -162,25 +262,37 @@
       <updated>1517468227657</updated>
       <workItem from="1517468230442" duration="10432000" />
       <workItem from="1517533188770" duration="2257000" />
-      <workItem from="1517540665385" duration="219000" />
+      <workItem from="1517540665385" duration="3617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12908000" />
+    <option name="totallyTimeSpent" value="16306000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="48" width="1366" height="699" extended-state="6" />
+    <frame x="0" y="28" width="1366" height="699" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20938897" sideWeight="0.48118278" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.50596124" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49454546" sideWeight="0.49701938" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272727" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19448584" sideWeight="0.5254545" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49636364" sideWeight="0.49403876" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19448584" sideWeight="0.47454545" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3309091" sideWeight="0.50596124" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.49701938" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32851985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20938897" sideWeight="0.5188172" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3309091" sideWeight="0.49403876" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -188,15 +300,45 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update resource (pikachu images dir) and put them into square component." />
+    <option name="LAST_COMMIT_MESSAGE" value="update resource (pikachu images dir) and put them into square component." />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -237,18 +379,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/board.js" />
     <entry file="file://$PROJECT_DIR$/src/components/square.js" />
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="235">
+          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
           <folding />
         </state>
       </provider>
