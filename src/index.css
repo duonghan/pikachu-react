@@ -19,21 +19,25 @@ ol, ul {
 
 .square {
     background: #fff;
-    border: 1px solid #999;
+    border: 2px solid #994426;
     float: left;
     /*font-size: 24px;*/
     /*font-weight: bold;*/
     /*line-height: 34px;*/
-    height: 37px;
+    height: 51px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 31px;
+    width: 41px;
 }
 
 .square:focus {
     outline: none;
+}
+
+.square:hover{
+    border: 3px solid crimson;
 }
 
 .kbd-navigation .square:focus {
@@ -47,4 +51,16 @@ ol, ul {
 
 .game-info {
     margin-left: 20px;
+}
+
+.score-board{
+    margin-left: 20px;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+
+hr{
+    margin: 20px;
+    border: 2px solid;
 }
