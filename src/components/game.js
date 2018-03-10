@@ -1,7 +1,6 @@
 import React from 'react';
 import Board from './board';
 
-"use strict";
 const row = 7;
 const col = 14;
 const amount = 36;
@@ -86,18 +85,18 @@ class Game extends React.Component {
             return;
         }
 
-        if(this.state.square2){
-            throw Error('Sai logic lap trinh');
-        }
-
+        // if(this.state.square2){
+        //     throw Error('Sai logic lap trinh');
+        // }
+       
         this.setState({
             square2: {x:i, y:j}
         });
 
-        //Update items
         if(this.isPair(this.state.square1, this.state.square2)){
             let newItems = this.state.items.slice();
             newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+
             this.setState({
                 items: newItems,
                 square1: null,
@@ -105,8 +104,28 @@ class Game extends React.Component {
             
         }
 
-
     }
+
+    // componentDidMount(){
+
+    //     if(this.state.square1 && this.state.square2 && this.state.square1.x === this.state.square2.x && this.state.square1.y === this.state.square2.y){
+    //         this.setState({
+    //             square2: null
+    //         });
+    //     }
+
+    //     //Update items
+    //     if(this.isPair(this.state.square1, this.state.square2)){
+    //         let newItems = this.state.items.slice();
+    //         newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+
+    //         this.setState({
+    //             items: newItems,
+    //             square1: null,
+    //             square2: null});
+            
+    //     }
+    // }
 
     //test if two points on a line (verticle or horizontal)
     checkLineX = (y1, y2, x) => {
