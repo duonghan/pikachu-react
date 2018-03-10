@@ -40,6 +40,10 @@ ol, ul {
     border: 3px solid crimson;
 }
 
+.selected{
+    border: 3px solid crimson;
+}
+
 .kbd-navigation .square:focus {
     background: #ddd;
 }
