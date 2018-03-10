@@ -8,6 +8,7 @@ const amount = 36;
 class Game extends React.Component {
 
     constructor(props){
+        debugger;
         super(props);
 
         this.state = {
@@ -21,6 +22,45 @@ class Game extends React.Component {
         this.rndNum = this.rndNum.bind(this);
         this.generateBoard = this.generateBoard.bind(this);
     }
+
+    componentWillMount() {
+        debugger;
+    }
+    componentDidMount () {
+        debugger;
+    }
+    componentWillReceiveProps() {
+        debugger;
+    }
+    shouldComponentUpdate() {
+        debugger;
+        return true;
+    }
+    componentDidUpdate() {
+        if (this.state.square1 && this.state.square2) {
+            if(this.isPair(this.state.square1, this.state.square2)){
+                let newItems = this.state.items.slice();
+                newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+debugger;
+                this.setState({
+                    items: newItems
+                });
+
+            }
+            this.setState({
+                square1: null,
+                square2: null
+            });
+        }
+    }
+    componentWillUnmount() {
+        debugger;
+    }
+
+
+
+
+
 
     rndNum(a,b){
         return Math.floor(Math.random()*(b-a)) + a;
@@ -78,6 +118,7 @@ class Game extends React.Component {
     }
 
     handleClick = (i, j) => {
+        debugger;
         if(!this.state.square1){
             this.setState({
                 square1: {x: i, y: j}
@@ -92,19 +133,7 @@ class Game extends React.Component {
         this.setState({
             square2: {x:i, y:j}
         });
-
-        if(this.isPair(this.state.square1, this.state.square2)){
-            let newItems = this.state.items.slice();
-            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-
-            this.setState({
-                items: newItems,
-                square1: null,
-                square2: null});
-            
-        }
-
-    }
+    };
 
     // componentDidMount(){
 
@@ -127,7 +156,7 @@ class Game extends React.Component {
     //     }
     // }
 
-    //test if two points on a line (verticle or horizontal)
+    // test if two points on a line (verticle or horizontal)
     checkLineX = (y1, y2, x) => {
         return [...this.state.items[x]].reduce((sum, item, index)=>{return sum+=(index > Math.min(y1, y2) && index < Math.max(y1, y2)?item:0)},0) === 0;
     }
@@ -232,47 +261,63 @@ class Game extends React.Component {
         }
 
         return false;
-    }
+    };
 
+
+    /**
+     * Tra ve trang thai an diem. True: co the an diem. False: khong.
+     * @param p1
+     * @param p2
+     * @returns {*}
+     */
     isPair = (p1, p2) => {
-        if(p1 && p2){
-            let x1 = p1.x;
-            let y1 = p1.y;
-
-            let x2 = p2.x;
-            let y2 = p2.y;
-
-            if(this.state.items[x1][y1] === this.state.items[x2][y2]){
-                //Case1: two points in the same line
-                if(x1 === x2){
-                   return this.checkLineX(y1, y2, x1);
-                }
-
-                if(y1 === y2){
-                    return this.checkLineY(x1, x2, y1);
-                }
-
-                //Case2: two points in bound of the rectangle
-                if(this.checkRectX(p1, p2)) return true;
-                if(this.checkRectY(p1, p2)) return true;
-
-                //Case2: two points out of bound of the rectangle
-                if(this.checkExtendX(p1, p2, col-1)) return true;
-                if(this.checkExtendY(p1, p2, row-1)) return true;
-            }
+        if (!p1 || !p2) {
+            throw Error('p1, p2 bat buoc co gia tri.');
         }
 
+        let x1 = p1.x;
+        let y1 = p1.y;
+
+        let x2 = p2.x;
+        let y2 = p2.y;
+
+        if(this.state.items[x1][y1] !== this.state.items[x2][y2]) {
+            return false;
+        }
+        // Case1: Tren cung 1 hang
+        if(x1 === x2){
+           return this.checkLineX(y1, y2, x1);
+        }
+
+        // Case 2: tren cung 1 cot
+        if(y1 === y2) {
+            return this.checkLineY(x1, x2, y1);
+        }
+
+        // Case3: two points in bound of the rectangle
+        if(this.checkRectX(p1, p2)) return true;
+
+        if(this.checkRectY(p1, p2)) return true;
+
+        //Case2: two points out of bound of the rectangle
+        if(this.checkExtendX(p1, p2, col-1)) return true;
+
+        if(this.checkExtendY(p1, p2, row-1)) return true;
+
         return false;
-    }
+    };
 
     render() {
+        debugger;
         return (
             <div className="game">
                 <div className="game-board">
                     <Board
                         squares = {this.state.items}
-                        onClick={(i, j) => this.handleClick(i,j)}
-                        current={this.state}
+                        onClick={this.handleClick}
+                        // current={this.state}
+                        square1={this.state.square1}
+                        square2={this.state.square2}
                     />
                 </div>
 

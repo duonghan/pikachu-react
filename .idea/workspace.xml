@@ -2,111 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77c75a06-40a8-49bd-9d1a-35b0289fdf58" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/board.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/game.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_15.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_17.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_18.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_19.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_20.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_21.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_22.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_23.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_24.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_25.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_26.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_27.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_28.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_29.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_30.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_31.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_32.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_33.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_34.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_35.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_36.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_37.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_38.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_39.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_40.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_41.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_42.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_43.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_44.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_45.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_46.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_47.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_48.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_49.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_50.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_51.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_52.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_53.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_54.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_55.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_56.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_57.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_58.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_59.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_60.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_61.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_62.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_63.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_64.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_65.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_66.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_67.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_68.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_69.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_70.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_71.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_72.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_73.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_74.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_75.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_76.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_77.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_78.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_79.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_80.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_81.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_82.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_83.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_84.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_85.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_86.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_87.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_88.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_89.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_90.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_91.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_92.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_93.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_94.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_95.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_96.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_97.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/pokemon_98.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/board.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/square.js" afterPath="$PROJECT_DIR$/src/components/square.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/board.js" afterPath="$PROJECT_DIR$/src/components/board.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/game.js" afterPath="$PROJECT_DIR$/src/components/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -126,30 +24,39 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="38">
+              <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="-180">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+                <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+                <element signature="e#4328#4488#0" expanded="false" />
+                <element signature="e#4522#4677#0" expanded="false" />
+                <element signature="e#4758#5307#0" expanded="false" />
+                <element signature="e#5338#5865#0" expanded="false" />
+                <element signature="e#5959#6689#0" expanded="false" />
+                <element signature="e#6728#7425#0" expanded="false" />
+                <element signature="e#7433#7568#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="499">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -161,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="760">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -170,8 +77,8 @@
       <file leaf-file-name="square.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/square.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="95">
+              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -209,10 +116,10 @@
         <option value="$PROJECT_DIR$/src/components/board_old.js" />
         <option value="$PROJECT_DIR$/src/components/boardnew.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/components/game.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/square.js" />
         <option value="$PROJECT_DIR$/src/components/board.js" />
+        <option value="$PROJECT_DIR$/src/components/game.js" />
       </list>
     </option>
   </component>
@@ -228,10 +135,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="48" />
-    <option name="width" value="1211" />
-    <option name="height" value="595" />
+    <option name="y" value="28" />
+    <option name="width" value="1366" />
+    <option name="height" value="699" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -278,8 +184,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,7 +194,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="SearchEverywhereHistoryKey" value="desktop&#9;ACTION&#9;WelcomeScreen.Configure.DesktopEntry&#10;Desk&#9;ACTION&#9;CreateDesktopEntry" />
+    <property name="SearchEverywhereHistoryKey" value="desktop&#9;ACTION&#9;CreateDesktopEntry&#10;Desk&#9;ACTION&#9;CreateDesktopEntry" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -366,6 +272,7 @@
       <workItem from="1519957735327" duration="4575000" />
       <workItem from="1519974249058" duration="4789000" />
       <workItem from="1520496902550" duration="543000" />
+      <workItem from="1520650248949" duration="4623000" />
     </task>
     <task id="LOCAL-00001" summary="Split project into multiple file.">
       <created>1517619325340</created>
@@ -385,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69383000" />
+    <option name="totallyTimeSpent" value="74006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,18 +304,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="48" width="1366" height="699" extended-state="6" />
+    <frame x="0" y="28" width="1366" height="699" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2019374" sideWeight="0.45272726" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2004471" sideWeight="0.45272726" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.50596124" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4927798" sideWeight="0.49701938" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21416804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18628912" sideWeight="0.54727274" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3709091" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6636364" sideWeight="0.49403876" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66235864" sideWeight="0.49403876" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1780924" sideWeight="0.5327273" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -482,7 +389,9 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -518,6 +427,15 @@
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+            <element signature="e#4328#4488#0" expanded="false" />
+            <element signature="e#4522#4677#0" expanded="false" />
+            <element signature="e#4758#5307#0" expanded="false" />
+            <element signature="e#5338#5865#0" expanded="false" />
+            <element signature="e#5959#6689#0" expanded="false" />
+            <element signature="e#6728#7425#0" expanded="false" />
+            <element signature="e#7433#7568#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -554,6 +472,15 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+            <element signature="e#4328#4488#0" expanded="false" />
+            <element signature="e#4522#4677#0" expanded="false" />
+            <element signature="e#4758#5307#0" expanded="false" />
+            <element signature="e#5338#5865#0" expanded="false" />
+            <element signature="e#5959#6689#0" expanded="false" />
+            <element signature="e#6728#7425#0" expanded="false" />
+            <element signature="e#7433#7568#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -597,6 +524,15 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+            <element signature="e#4328#4488#0" expanded="false" />
+            <element signature="e#4522#4677#0" expanded="false" />
+            <element signature="e#4758#5307#0" expanded="false" />
+            <element signature="e#5338#5865#0" expanded="false" />
+            <element signature="e#5959#6689#0" expanded="false" />
+            <element signature="e#6728#7425#0" expanded="false" />
+            <element signature="e#7433#7568#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -625,6 +561,15 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+            <element signature="e#4328#4488#0" expanded="false" />
+            <element signature="e#4522#4677#0" expanded="false" />
+            <element signature="e#4758#5307#0" expanded="false" />
+            <element signature="e#5338#5865#0" expanded="false" />
+            <element signature="e#5959#6689#0" expanded="false" />
+            <element signature="e#6728#7425#0" expanded="false" />
+            <element signature="e#7433#7568#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -795,26 +740,16 @@
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="38">
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,18 +760,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/square.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="95">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="499">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
+            <element signature="e#4328#4488#0" expanded="false" />
+            <element signature="e#4522#4677#0" expanded="false" />
+            <element signature="e#4758#5307#0" expanded="false" />
+            <element signature="e#5338#5865#0" expanded="false" />
+            <element signature="e#5959#6689#0" expanded="false" />
+            <element signature="e#6728#7425#0" expanded="false" />
+            <element signature="e#7433#7568#0" expanded="false" />
           </folding>
         </state>
       </provider>

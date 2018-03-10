@@ -20,9 +20,9 @@ class Board extends React.Component {
                     item.map((square,j) => {
                         let selected = false;
 
-                        if(this.props.current.square1 && this.props.current.square1.x === i && this.props.current.square1.y === j){
+                        if(this.props.square1 && this.props.square1.x === i && this.props.square1.y === j){
                             selected = true;
-                        }else if(this.props.current.square2 && this.props.current.square2.x === i && this.props.current.square2.y === j){
+                        }else if(this.props.square2 && this.props.square2.x === i && this.props.square2.y === j){
                             selected = true;
                         }
                         return this.renderSquare(i,j,selected);
