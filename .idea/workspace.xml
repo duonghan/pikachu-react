@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="77c75a06-40a8-49bd-9d1a-35b0289fdf58" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/board.js" afterPath="$PROJECT_DIR$/src/components/board.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/game.js" afterPath="$PROJECT_DIR$/src/components/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,20 +32,33 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="475">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+                <element signature="e#290#450#0" expanded="false" />
                 <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-                <element signature="e#4328#4488#0" expanded="false" />
-                <element signature="e#4522#4677#0" expanded="false" />
-                <element signature="e#4758#5307#0" expanded="false" />
-                <element signature="e#5338#5865#0" expanded="false" />
-                <element signature="e#5959#6689#0" expanded="false" />
-                <element signature="e#6728#7425#0" expanded="false" />
-                <element signature="e#7433#7568#0" expanded="false" />
+                <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+                <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+                <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+                <element signature="e#959#1305#0" expanded="false" />
+                <element signature="e#1386#1923#0" expanded="false" />
+                <element signature="e#1954#2469#0" expanded="false" />
+                <element signature="e#2563#3293#0" expanded="false" />
+                <element signature="e#3624#4178#0" expanded="false" />
+                <element signature="e#4223#4920#0" expanded="false" />
+                <element signature="e#5089#5974#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/functions/generator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +66,8 @@
       <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="589">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -119,6 +130,7 @@
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/square.js" />
         <option value="$PROJECT_DIR$/src/components/board.js" />
+        <option value="$PROJECT_DIR$/src/functions/generator.js" />
         <option value="$PROJECT_DIR$/src/components/game.js" />
       </list>
     </option>
@@ -157,6 +169,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,12 +194,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pikachu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pikachu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -273,6 +291,7 @@
       <workItem from="1519974249058" duration="4789000" />
       <workItem from="1520496902550" duration="543000" />
       <workItem from="1520650248949" duration="4623000" />
+      <workItem from="1520843087911" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="Split project into multiple file.">
       <created>1517619325340</created>
@@ -288,11 +307,25 @@
       <option name="project" value="LOCAL" />
       <updated>1517619915589</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&#10;add generate Board method">
+      <created>1520844145987</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1520844145987</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update score when user click valid couple pokemon">
+      <created>1520844359007</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520844359007</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74006000" />
+    <option name="totallyTimeSpent" value="75299000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,19 +338,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1366" height="699" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2004471" sideWeight="0.45272726" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.50596124" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4927798" sideWeight="0.49701938" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21416804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4340344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4913958" sideWeight="0.49701938" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18628912" sideWeight="0.54727274" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66235864" sideWeight="0.49403876" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1780924" sideWeight="0.5327273" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1780924" sideWeight="0.5327273" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909092" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -385,7 +417,9 @@
     <MESSAGE value="update resource (pikachu images dir) and put them into square component." />
     <MESSAGE value="Split project into multiple file." />
     <MESSAGE value="&#10;change props in Square class" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;change props in Square class" />
+    <MESSAGE value="&#10;add generate Board method" />
+    <MESSAGE value="update score when user click valid couple pokemon" />
+    <option name="LAST_COMMIT_MESSAGE" value="update score when user click valid couple pokemon" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -395,14 +429,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/square.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/board.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
@@ -427,15 +453,18 @@
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="e#290#450#0" expanded="false" />
             <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-            <element signature="e#4328#4488#0" expanded="false" />
-            <element signature="e#4522#4677#0" expanded="false" />
-            <element signature="e#4758#5307#0" expanded="false" />
-            <element signature="e#5338#5865#0" expanded="false" />
-            <element signature="e#5959#6689#0" expanded="false" />
-            <element signature="e#6728#7425#0" expanded="false" />
-            <element signature="e#7433#7568#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+            <element signature="e#959#1305#0" expanded="false" />
+            <element signature="e#1386#1923#0" expanded="false" />
+            <element signature="e#1954#2469#0" expanded="false" />
+            <element signature="e#2563#3293#0" expanded="false" />
+            <element signature="e#3624#4178#0" expanded="false" />
+            <element signature="e#4223#4920#0" expanded="false" />
+            <element signature="e#5089#5974#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -472,15 +501,18 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="e#290#450#0" expanded="false" />
             <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-            <element signature="e#4328#4488#0" expanded="false" />
-            <element signature="e#4522#4677#0" expanded="false" />
-            <element signature="e#4758#5307#0" expanded="false" />
-            <element signature="e#5338#5865#0" expanded="false" />
-            <element signature="e#5959#6689#0" expanded="false" />
-            <element signature="e#6728#7425#0" expanded="false" />
-            <element signature="e#7433#7568#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+            <element signature="e#959#1305#0" expanded="false" />
+            <element signature="e#1386#1923#0" expanded="false" />
+            <element signature="e#1954#2469#0" expanded="false" />
+            <element signature="e#2563#3293#0" expanded="false" />
+            <element signature="e#3624#4178#0" expanded="false" />
+            <element signature="e#4223#4920#0" expanded="false" />
+            <element signature="e#5089#5974#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -524,15 +556,18 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="e#290#450#0" expanded="false" />
             <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-            <element signature="e#4328#4488#0" expanded="false" />
-            <element signature="e#4522#4677#0" expanded="false" />
-            <element signature="e#4758#5307#0" expanded="false" />
-            <element signature="e#5338#5865#0" expanded="false" />
-            <element signature="e#5959#6689#0" expanded="false" />
-            <element signature="e#6728#7425#0" expanded="false" />
-            <element signature="e#7433#7568#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+            <element signature="e#959#1305#0" expanded="false" />
+            <element signature="e#1386#1923#0" expanded="false" />
+            <element signature="e#1954#2469#0" expanded="false" />
+            <element signature="e#2563#3293#0" expanded="false" />
+            <element signature="e#3624#4178#0" expanded="false" />
+            <element signature="e#4223#4920#0" expanded="false" />
+            <element signature="e#5089#5974#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -561,15 +596,18 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="e#290#450#0" expanded="false" />
             <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-            <element signature="e#4328#4488#0" expanded="false" />
-            <element signature="e#4522#4677#0" expanded="false" />
-            <element signature="e#4758#5307#0" expanded="false" />
-            <element signature="e#5338#5865#0" expanded="false" />
-            <element signature="e#5959#6689#0" expanded="false" />
-            <element signature="e#6728#7425#0" expanded="false" />
-            <element signature="e#7433#7568#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+            <element signature="e#959#1305#0" expanded="false" />
+            <element signature="e#1386#1923#0" expanded="false" />
+            <element signature="e#1954#2469#0" expanded="false" />
+            <element signature="e#2563#3293#0" expanded="false" />
+            <element signature="e#3624#4178#0" expanded="false" />
+            <element signature="e#4223#4920#0" expanded="false" />
+            <element signature="e#5089#5974#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,29 +806,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="589">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/functions/generator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="475">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Game#0" expanded="false" />
+            <element signature="e#290#450#0" expanded="false" />
             <element signature="n#!!block;n#componentWillMount#0;n#Game#0" expanded="false" />
-            <element signature="e#4328#4488#0" expanded="false" />
-            <element signature="e#4522#4677#0" expanded="false" />
-            <element signature="e#4758#5307#0" expanded="false" />
-            <element signature="e#5338#5865#0" expanded="false" />
-            <element signature="e#5959#6689#0" expanded="false" />
-            <element signature="e#6728#7425#0" expanded="false" />
-            <element signature="e#7433#7568#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Game#0" expanded="false" />
+            <element signature="n#!!block;n#shouldComponentUpdate#0;n#Game#0" expanded="false" />
+            <element signature="e#959#1305#0" expanded="false" />
+            <element signature="e#1386#1923#0" expanded="false" />
+            <element signature="e#1954#2469#0" expanded="false" />
+            <element signature="e#2563#3293#0" expanded="false" />
+            <element signature="e#3624#4178#0" expanded="false" />
+            <element signature="e#4223#4920#0" expanded="false" />
+            <element signature="e#5089#5974#0" expanded="false" />
           </folding>
         </state>
       </provider>
