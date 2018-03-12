@@ -195,7 +195,7 @@ class Game extends React.Component {
         let x2 = p2.x;
         let y2 = p2.y;
 
-        if(this.state.items[x1][y1] !== this.state.items[x2][y2]) {
+        if(this.state.items[x1][y1] !== this.state.items[x2][y2] || (x1 === x2 && y1 === y2)) {
             return false;
         }
         // Case1: Tren cung 1 hang
