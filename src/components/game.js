@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './board';
+import { getBoard } from '../functions/generator';
 
 const row = 7;
 const col = 14;
@@ -7,21 +8,10 @@ const amount = 36;
 
 class Game extends React.Component {
 
-    constructor(props){
-        debugger;
-        super(props);
-
-        this.state = {
-            items : this.generateBoard(row,col,amount),
-            score: 0,
-            square1: null,
-            square2: null
-        };
-
-        // this.handleClick = this.handleClick.bind(this);
-        this.rndNum = this.rndNum.bind(this);
-        this.generateBoard = this.generateBoard.bind(this);
-    }
+    // test if two points on a line (verticle or horizontal)
+    checkLineX = (y1, y2, x) => {
+        return [...this.state.items[x]].reduce((sum, item, index)=>{return sum+=(index > Math.min(y1, y2) && index < Math.max(y1, y2)?item:0)},0) === 0;
+    };
 
     componentWillMount() {
         debugger;
@@ -36,85 +26,11 @@ class Game extends React.Component {
         debugger;
         return true;
     }
-    componentDidUpdate() {
-        if (this.state.square1 && this.state.square2) {
-            if(this.isPair(this.state.square1, this.state.square2)){
-                let newItems = this.state.items.slice();
-                newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-debugger;
-                this.setState({
-                    items: newItems
-                });
-
-            }
-            this.setState({
-                square1: null,
-                square2: null
-            });
-        }
-    }
+    checkLineY = (x1, x2, y) => {
+        return this.state.items.reduce((sum, item, index)=>{return sum+=(index > Math.min(x1, x2) && index < Math.max(x1, x2)?item[y]:0)},0) === 0;
+    };
     componentWillUnmount() {
         debugger;
-    }
-
-
-
-
-
-
-    rndNum(a,b){
-        return Math.floor(Math.random()*(b-a)) + a;
-    }
-
-    // generateBoard(row, col, amount){
-    //     let arr = new Array(row+2);
-    //     let temp = new Array(); //Contain index of pokemon in first-half board.
-
-    //     for(let i=0; i< row+2; i++){            
-    //         arr[i] = new Array(col+2).fill(0);
-
-    //         if(i == 0 || i == row+1) continue;
-
-    //         let num;
-
-    //         for(let j=1; j<= col; j++){
-    //             if((i-1)*col + j <= row*col/2){   //Conditional to clone half board.
-    //                 num = this.rndNum(1,amount);
-    //                 arr[i][j] = num;
-    //                 temp.push(num);
-    //             }else{
-    //                 let index = this.rndNum(0, temp.length - 1);
-    //                 arr[i][j] = temp[index];
-    //                 temp[index] = temp.pop();
-    //             }
-    //         }
-    //     }
-
-    //     return arr;
-    // }
-
-    generateBoard(row, col, amount){
-        let arr = new Array(row);
-        let temp = new Array(); //Contain index of pokemon in first-half board.
-
-        for(let i=0; i< row; i++){            
-            arr[i] = new Array(col);
-            let num;
-
-            for(let j=1; j<= col; j++){
-                if(i*col + j + 1 <= row*col/2){   //Conditional to clone half board.
-                    num = this.rndNum(1,amount);
-                    arr[i][j] = num;
-                    temp.push(num);
-                }else{
-                    let index = this.rndNum(0, temp.length - 1);
-                    arr[i][j] = temp[index];
-                    temp[index] = temp.pop();
-                }
-            }
-        }
-
-        return arr;
     }
 
     handleClick = (i, j) => {
@@ -134,37 +50,6 @@ debugger;
             square2: {x:i, y:j}
         });
     };
-
-    // componentDidMount(){
-
-    //     if(this.state.square1 && this.state.square2 && this.state.square1.x === this.state.square2.x && this.state.square1.y === this.state.square2.y){
-    //         this.setState({
-    //             square2: null
-    //         });
-    //     }
-
-    //     //Update items
-    //     if(this.isPair(this.state.square1, this.state.square2)){
-    //         let newItems = this.state.items.slice();
-    //         newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-
-    //         this.setState({
-    //             items: newItems,
-    //             square1: null,
-    //             square2: null});
-            
-    //     }
-    // }
-
-    // test if two points on a line (verticle or horizontal)
-    checkLineX = (y1, y2, x) => {
-        return [...this.state.items[x]].reduce((sum, item, index)=>{return sum+=(index > Math.min(y1, y2) && index < Math.max(y1, y2)?item:0)},0) === 0;
-    }
-
-    checkLineY = (x1, x2, y) => {
-        return this.state.items.reduce((sum, item, index)=>{return sum+=(index > Math.min(x1, x2) && index < Math.max(x1, x2)?item[y]:0)},0) === 0;
-    }
-
     //test if two points in bound of the rectangle
     checkRectX = (p1, p2) =>{
         let pleft = p1;
@@ -176,7 +61,7 @@ debugger;
         }
 
         // [...Array(pright.y+1).keys()].filter((value) => value > pleft.y && value < pright.y).map(value => {
-            
+
         // });
 
         for(let yi=pleft.y+1; yi< pright.y; yi++){
@@ -186,8 +71,7 @@ debugger;
         }
 
         return false;
-    }
-
+    };
     checkRectY = (p1, p2) => {
         let pup = p1;
         let pdown = p2;
@@ -198,7 +82,7 @@ debugger;
         }
 
         // [...Array(pdown.y+1).keys()].filter((value) => value > pup.y && value < pdown.y).map(value => {
-            
+
         // });
 
         for(let xi=pup.x+1; xi< pdown.x; xi++){
@@ -208,8 +92,7 @@ debugger;
         }
 
         return false;
-    }
-
+    };
     //test if two points out of bound of the rectangle
     checkExtendX = (p1, p2, maxY) => {
         let pleft = p1;
@@ -235,6 +118,37 @@ debugger;
         }
 
         return false;
+    };
+
+    constructor(props){
+        debugger;
+        super(props);
+
+        this.state = {
+            items : getBoard(row,col,amount),
+            score: 0,
+            square1: null,
+            square2: null
+        };
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.square1 && this.state.square2) {
+            if(this.isPair(this.state.square1, this.state.square2)){
+                let newItems = this.state.items.slice();
+                newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+                    debugger;
+                this.setState({
+                    items: newItems,
+                    score: prevState.score + 20,
+                });
+
+            }
+            this.setState({
+                square1: null,
+                square2: null
+            });
+        }
     }
 
     checkExtendY = (p1, p2, maxX) => {
