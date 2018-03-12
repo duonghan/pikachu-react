@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="77c75a06-40a8-49bd-9d1a-35b0289fdf58" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/game.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="475">
@@ -49,6 +50,19 @@
                 <element signature="e#4223#4920#0" expanded="false" />
                 <element signature="e#5089#5974#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="38">
+                <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -132,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/components/board.js" />
         <option value="$PROJECT_DIR$/src/functions/generator.js" />
         <option value="$PROJECT_DIR$/src/components/game.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -291,7 +306,7 @@
       <workItem from="1519974249058" duration="4789000" />
       <workItem from="1520496902550" duration="543000" />
       <workItem from="1520650248949" duration="4623000" />
-      <workItem from="1520843087911" duration="1293000" />
+      <workItem from="1520843087911" duration="2148000" />
     </task>
     <task id="LOCAL-00001" summary="Split project into multiple file.">
       <created>1517619325340</created>
@@ -321,11 +336,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520844359007</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update score when user click valid couple pokemon">
+      <created>1520844391883</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1520844391883</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75299000" />
+    <option name="totallyTimeSpent" value="76154000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,16 +451,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -841,6 +853,17 @@
             <element signature="e#4223#4920#0" expanded="false" />
             <element signature="e#5089#5974#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="38">
+            <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
