@@ -8,11 +8,6 @@ const amount = 36;
 
 class Game extends React.Component {
 
-    // test if two points on a line (verticle or horizontal)
-    checkLineX = (y1, y2, x) => {
-        return [...this.state.items[x]].reduce((sum, item, index)=>{return sum+=(index > Math.min(y1, y2) && index < Math.max(y1, y2)?item:0)},0) === 0;
-    };
-
     componentWillMount() {
         debugger;
     }
@@ -26,6 +21,12 @@ class Game extends React.Component {
         debugger;
         return true;
     }
+
+    // test if two points on a line (vertical or horizontal)
+    checkLineX = (y1, y2, x) => {
+        return [...this.state.items[x]].reduce((sum, item, index)=>{return sum+=(index > Math.min(y1, y2) && index < Math.max(y1, y2)?item:0)},0) === 0;
+    };
+
     checkLineY = (x1, x2, y) => {
         return this.state.items.reduce((sum, item, index)=>{return sum+=(index > Math.min(x1, x2) && index < Math.max(x1, x2)?item[y]:0)},0) === 0;
     };
@@ -35,6 +36,10 @@ class Game extends React.Component {
 
     handleClick = (i, j) => {
         debugger;
+
+        //Check if this items is out of board
+        if(this.state.items[i][j] === 0) return;
+
         if(!this.state.square1){
             this.setState({
                 square1: {x: i, y: j}
@@ -104,15 +109,15 @@ class Game extends React.Component {
         }
 
         //left to right
-        for(let yi = pright.y+1; yi<= maxY; yi++){
-            if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && (this.checkLineY(pleft.x, pright.x, yi) || yi === maxY)){
+        for(let yi = pright.y+1; yi<= maxY+1; yi++){
+            if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && this.checkLineY(pleft.x, pright.x, yi) ){
                 return true;
             }
         }
 
         //right to left
         for(let yi = pleft.y-1; yi >= 0; yi--){
-            if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && (this.checkLineY(pleft.x, pright.x, yi) || yi === 0)){
+            if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && this.checkLineY(pleft.x, pright.x, yi)){
                 return true;
             }
         }
@@ -161,15 +166,15 @@ class Game extends React.Component {
         }
 
         //up to down
-        for(let xi = pdown.x+1; xi<= maxX; xi++){
-            if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && (this.checkLineX(pup.y, pdown.y, xi) || xi === maxX)){
+        for(let xi = pdown.x+1; xi<= maxX+1; xi++){
+            if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi)){
                 return true;
             }
         }
 
         //down to up
         for(let xi = pup.y-1; xi >= 0; xi--){
-            if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && (this.checkLineX(pup.y, pdown.y, xi) || xi === 0)){
+            if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi)){
                 return true;
             }
         }
@@ -199,14 +204,10 @@ class Game extends React.Component {
             return false;
         }
         // Case1: Tren cung 1 hang
-        if(x1 === x2){
-           return this.checkLineX(y1, y2, x1);
-        }
+        if(x1 === x2 && this.checkLineX(y1, y2, x1)) return true;
 
         // Case 2: tren cung 1 cot
-        if(y1 === y2) {
-            return this.checkLineY(x1, x2, y1);
-        }
+        if(y1 === y2 && this.checkLineY(x1, x2, y1)) return true;
 
         // Case3: two points in bound of the rectangle
         if(this.checkRectX(p1, p2)) return true;
@@ -214,9 +215,9 @@ class Game extends React.Component {
         if(this.checkRectY(p1, p2)) return true;
 
         //Case2: two points out of bound of the rectangle
-        if(this.checkExtendX(p1, p2, col-1)) return true;
+        if(this.checkExtendX(p1, p2, col)) return true;
 
-        if(this.checkExtendY(p1, p2, row-1)) return true;
+        if(this.checkExtendY(p1, p2, row)) return true;
 
         return false;
     };

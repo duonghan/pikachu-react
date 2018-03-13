@@ -3,7 +3,8 @@ body {
     margin: 20px;
 }
 
-ol, ul {
+ol,
+ul {
     padding-left: 30px;
 }
 
@@ -32,15 +33,30 @@ ol, ul {
     width: 41px;
 }
 
+.non-square {
+    background: #fff;
+    border: 0px solid #ffffff;
+    float: left;
+    /*font-size: 24px;*/
+    /*font-weight: bold;*/
+    /*line-height: 34px;*/
+    height: 51px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 41px;
+}
+
 .square:focus {
     outline: none;
 }
 
-.square:hover{
+.square:hover {
     border: 3px solid crimson;
 }
 
-.selected{
+.selected {
     border: 3px solid crimson;
 }
 
@@ -57,14 +73,13 @@ ol, ul {
     margin-left: 20px;
 }
 
-.score-board{
+.score-board {
     margin-left: 20px;
     font-family: Arial;
     font-size: 20px;
 }
 
-
-hr{
+hr {
     margin: 20px;
     border: 2px solid;
 }
