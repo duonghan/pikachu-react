@@ -83,3 +83,18 @@ hr {
     margin: 20px;
     border: 2px solid;
 }
+
+.myProgress {
+    width: 550px;
+    border-radius: 25px;
+    background-color: #ddd;
+}
+
+.myBar {
+    height: 30px;
+    border-radius: 25px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
