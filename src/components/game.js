@@ -6,6 +6,7 @@ const row = 7;
 const col = 14;
 const amount = 36;
 var lines = [];
+var newItems;
 
 class Game extends React.Component {
 
@@ -17,8 +18,11 @@ class Game extends React.Component {
             items : getBoard(row,col,amount),
             score: 0,
             square1: null,
-            square2: null
+            square2: null,
         };
+
+        this.hasLine = false;
+        this.doneLine = false;
     }
 
     // componentWillMount() {
@@ -39,34 +43,52 @@ class Game extends React.Component {
     // }
 
     componentDidUpdate(prevProps, prevState) {
+      
+        
+        // if(this.doneLine){
+        //     lines.map((line) =>{
+        //         newItems[line.x][line.y] = 0;
+        //     });
+    
+        //     this.setState({
+        //         items: newItems,
+        //         square1: null,
+        //         square2: null
+        //     });
+        // }
+
+        
+
         if (this.state.square1 && this.state.square2) {
-            if(this.isPair(this.state.square1, this.state.square2)){
-                let newItems = this.state.items.slice();
-                // newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-                    debugger;
-                if(lines.length !== 0){
-                    lines.map((line) =>{
-                        newItems[line.x][line.y] = line.value;
-                    });
-                    lines = [];
-                }else{
-                    lines.map((line) =>{
-                        newItems[line.x][line.y] = 0;
-                    });
-                }
+            newItems = this.state.items.slice();
+            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
 
+            if(!this.isPair(this.state.square1, this.state.square2)){
                 this.setState({
-                    items: newItems,
-                    score: prevState.score + 20,
+                    square1: null,
+                    square2: null
                 });
+            }else{
+               
+                lines.map((line) =>{
+                    newItems[line.x][line.y] = line.value;
+                });
+                this.hasLine = true;
+            }   
+        }
 
-            }
-            
+        if(this.hasLine){
+            this.hasLine = false;
+            this.doneLine = true;
+
             this.setState({
-                square1: null,
-                square2: null
+                items: newItems,
+                score: prevState.score + 20,
             });
         }
+        
+        
+        
     }
 
     // test if two points on a line (vertical or horizontal)
@@ -125,6 +147,7 @@ class Game extends React.Component {
         lines = [{x: pleft.x ,y: pleft.y ,value: 'half_right_horizonal'}, {x: pright.x,y: pright.y,value: 'half_left_horizonal'}];
 
         for(let yi=pleft.y+1; yi< pright.y; yi++){
+
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
 
             if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineY(pleft.x, pright.x, yi) && this.checkLineX(yi, pright.y, pright.x) && this.state.items[pleft.x][yi] == 0 && this.state.items[pright.x][yi] == 0){
@@ -158,6 +181,7 @@ class Game extends React.Component {
         lines = [{x: pup.x,y: pup.y,value: 'half_down_vertical'}, {x: pdown.x,y: pdown.y,value: 'half_up_vertical'}];
         
         for(let xi=pup.x+1; xi< pdown.x; xi++){
+
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
 
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineX(pup.y, pdown.y, xi) && this.checkLineY(xi, pdown.x, pdown.y)&& this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
@@ -174,6 +198,7 @@ class Game extends React.Component {
 
         return false;
     };
+
     //test if two points out of bound of the rectangle
     checkExtendX = (p1, p2, maxY) => {
         let pleft = p1;
@@ -186,12 +211,15 @@ class Game extends React.Component {
         
         //left to right
         lines = [{x: pleft.x ,y: pleft.y ,value: 'half_right_horizonal'}, {x: pright.x,y: pright.y,value: 'half_left_horizonal'}];
+
         for(let yi= pleft.y; yi<pright.y; yi++){
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'});
         }       
+
         for(let yi = pright.y; yi<= maxY+1; yi++){
 
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
+
             if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && this.checkLineY(pleft.x, pright.x, yi) && this.state.items[pleft.x][yi] == 0 && this.state.items[pright.x][yi] == 0){
 
                 if(pleft.x > pright.x){
@@ -212,6 +240,7 @@ class Game extends React.Component {
         for(let yi = pleft.y; yi >= 0; yi--){
 
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
+
             if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineX(pright.y, yi, pright.x) && this.checkLineY(pleft.x, pright.x, yi) && this.state.items[pleft.x][yi] == 0 && this.state.items[pright.x][yi] == 0){
 
                 if(pleft.x > pright.x){
@@ -241,7 +270,7 @@ class Game extends React.Component {
             lines.push({x: xi ,y: pup.y ,value: 'vertical'});
         }
         
-        for(let xi = pdown.x+1; xi<= maxX+1; xi++){
+        for(let xi = pdown.x; xi<= maxX+1; xi++){
 
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi) && this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
@@ -260,7 +289,7 @@ class Game extends React.Component {
         for(let xi= pdown.x; xi<pup.x; xi--){
             lines.push({x: xi ,y: pdown.y ,value: 'vertical'});
         }
-        for(let xi = pup.y-1; xi >= 0; xi--){
+        for(let xi = pup.y; xi >= 0; xi--){
 
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi)&& this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
