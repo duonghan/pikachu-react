@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './board';
-import { getBoard } from '../functions/generator';
+import { getBoard, reloadBoard } from '../functions/generator';
 
 const row = 7;
 const col = 14;
@@ -372,6 +372,15 @@ class Game extends React.Component {
         });
     };
 
+    reloadHandler = () =>{
+        let oldItems = this.state.items.slice();
+        let newItems = reloadBoard(oldItems, row, col);
+
+        this.setState({
+            items: newItems,
+        });
+    }
+
     /**
      * Tra ve trang thai an diem. True: co the an diem. False: khong.
      * @param p1
@@ -431,6 +440,7 @@ class Game extends React.Component {
 
                 <div className="score-board">
                     <h3>Score: {this.state.score}</h3>
+                    <button onClick={this.reloadHandler}>Reload</button>
                 </div>
             </div>
         );
