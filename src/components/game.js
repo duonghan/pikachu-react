@@ -19,6 +19,7 @@ class Game extends React.Component {
             score: 0,
             square1: null,
             square2: null,
+            reload: 10,
         };
 
         this.hasLine = false;
@@ -28,9 +29,9 @@ class Game extends React.Component {
     // componentWillMount() {
     //     debugger;
     // }
-    // componentDidMount () {
-        
-    // }
+    componentDidMount () {
+        if(!this.isExist) this.reloadHandler;
+    }
     // componentWillReceiveProps() {
     //     debugger;
     // }
@@ -377,12 +378,15 @@ class Game extends React.Component {
     };
 
     reloadHandler = () =>{
-        let oldItems = this.state.items.slice();
-        let newItems = reloadBoard(oldItems, row, col);
+        if(this.state.reload > 0){
+            let oldItems = this.state.items.slice();
+            let newItems = reloadBoard(oldItems, row, col);
 
-        this.setState({
-            items: newItems,
-        });
+            this.setState({
+                items: newItems,
+                reload: this.state.reload - 1,
+            });
+        }
     }
 
     /**
@@ -427,6 +431,27 @@ class Game extends React.Component {
         return false;
     };
 
+    isExist(){
+        let tmp = this.state.items.slice();
+        let list = [];
+
+        for(let i = 1; i<= row; i++)
+            for(let j=1; j<= col; j++){
+                if(tmp[i][j] === 0) continue;
+                list.push({x: i, y: j});
+            }
+
+        list.map((item, index, list)=>{
+            list.map(pair =>{
+                if(this.isPair(item, pair))
+                    return true;
+            });
+        })
+
+        return false;
+        
+    }
+
     render() {
         return (
             <div className="game">
@@ -443,7 +468,8 @@ class Game extends React.Component {
                 <hr/>
 
                 <div className="score-board">
-                    <h3>Score: {this.state.score}</h3>
+                    <h3>Score: {this.state.score === 980 ? "You win": this.state.score}</h3>
+                    <h4>Reload Time Count: {this.state.reload}</h4>
                     <button onClick={this.reloadHandler}>Reload</button>
                 </div>
             </div>
