@@ -44,6 +44,7 @@ class Game extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
 
+        //Vong4
         if(this.doneLine){
             lines.map((line) =>{
                 newItems[line.x][line.y] = 0;
@@ -61,9 +62,11 @@ class Game extends React.Component {
             );
          
            this.doneLine = false;
+           lines = [];
            return;
         }
 
+        //Vong3
         if(this.hasLine){
             this.hasLine = false;
             this.doneLine = true;
@@ -75,19 +78,24 @@ class Game extends React.Component {
             return;
         } 
 
+        //Vong 1
         if (this.state.square1 && this.state.square2) {
             newItems = this.state.items.slice();
             
+            //Vong 2
             if(!this.isPair(this.state.square1, this.state.square2)){
+                lines = [];
                 this.setState({
                     square1: null,
                     square2: null
                 });
             }else{
                
-                lines.map((line) =>{
-                    newItems[line.x][line.y] = line.value;
-                });
+                if(lines.length>0){
+                    lines.map((line) =>{
+                        newItems[line.x][line.y] = line.value;
+                    });
+                }
                 
                 this.setState({
                     score: prevState.score + 20,
@@ -107,8 +115,6 @@ class Game extends React.Component {
         let yleft = Math.min(y1,y2);
         let yright = Math.max(y1,y2);
 
-        lines = [{x: x,y: yleft,value: 'half_right_horizonal'}, {x: x,y: yright,value: 'half_left_horizonal'}];
-
         for( let yi= yleft + 1 ; yi< yright; yi++){
             if(this.state.items[x][yi] !== 0){
                 return false;
@@ -125,8 +131,6 @@ class Game extends React.Component {
 
         let xup = Math.min(x1, x2);
         let xdown = Math.max(x1, x2);
-
-        lines = [{x: xup,y: y,value: 'half_down_vertical'}, {x: xdown,y: y,value: 'half_up_vertical'}];
 
         for( let xi= xup + 1 ; xi< xdown; xi++){
             if(this.state.items[xi][y] !== 0){
@@ -152,15 +156,12 @@ class Game extends React.Component {
         // [...Array(pright.y+1).keys()].filter((value) => value > pleft.y && value < pright.y).map(value => {
 
         // });
-
-        lines = [{x: pleft.x ,y: pleft.y ,value: 'half_right_horizonal'}, {x: pright.x,y: pright.y,value: 'half_left_horizonal'}];
-
+        lines = [];
         for(let yi=pleft.y+1; yi< pright.y; yi++){
 
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
 
             if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineY(pleft.x, pright.x, yi) && this.checkLineX(yi, pright.y, pright.x) && this.state.items[pleft.x][yi] == 0 && this.state.items[pright.x][yi] == 0){
-
                 if(pleft.x > pright.x){
                     lines.push({x: pleft.x ,y: yi ,value: 'top_left'}, {x: pright.x,y: yi,value: 'bottom_right'});
                 }else{
@@ -186,9 +187,7 @@ class Game extends React.Component {
         // [...Array(pdown.y+1).keys()].filter((value) => value > pup.y && value < pdown.y).map(value => {
 
         // });
-
-        lines = [{x: pup.x,y: pup.y,value: 'half_down_vertical'}, {x: pdown.x,y: pdown.y,value: 'half_up_vertical'}];
-        
+        lines = [];
         for(let xi=pup.x+1; xi< pdown.x; xi++){
 
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
@@ -208,6 +207,45 @@ class Game extends React.Component {
         return false;
     };
 
+    //test if tow point in edge of rectangle
+    checkEdge = (p1, p2) =>{
+        let pleft = p1;
+        let pright = p2;
+
+        if(p1.y > p2.y){
+            pleft = p2;
+            pright = p1;
+        }
+
+        let p ={x: pright.x, y: pleft.y};
+        if(this.state.items[p.x][p.y] === 0){
+            lines = [];
+
+            if(this.checkLineX(p.y, pright.y, p.x) && this.checkLineY(p.x, pleft.x, p.y)){
+                if(pleft.x > pright.x)
+                    lines.push({x: p.x, y:p.y, value:'bottom_right'});
+                else
+                    lines.push({x: p.x, y:p.y, value:'top_right'});
+                return true;
+            }
+        }        
+
+        p ={x: pleft.x, y: pright.y};
+        if(this.state.items[p.x][p.y] !== 0) return false;
+        lines = [];
+
+        if(this.checkLineX(p.y, pleft.y, p.x) && this.checkLineY(p.x, pright.x, p.y)){
+            if(pleft.x > pright.x)
+                lines.push({x: p.x, y:p.y, value:'top_left'});
+            else
+                lines.push({x: p.x, y:p.y, value:'bottom_left'});
+            return true;
+        }
+
+        return false;
+
+    }
+
     //test if two points out of bound of the rectangle
     checkExtendX = (p1, p2, maxY) => {
         let pleft = p1;
@@ -219,13 +257,12 @@ class Game extends React.Component {
         }
         
         //left to right
-        lines = [{x: pleft.x ,y: pleft.y ,value: 'half_right_horizonal'}, {x: pright.x,y: pright.y,value: 'half_left_horizonal'}];
-
-        for(let yi= pleft.y; yi<pright.y; yi++){
+        lines = [];
+        for(let yi= pleft.y + 1; yi<= pright.y; yi++){
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'});
         }       
 
-        for(let yi = pright.y; yi<= maxY+1; yi++){
+        for(let yi = pright.y +1; yi<= maxY+1; yi++){
 
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
 
@@ -242,11 +279,11 @@ class Game extends React.Component {
         }
 
         //right to left
-        lines = [{x: pleft.x ,y: pleft.y ,value: 'half_left_horizonal'}, {x: pright.x,y: pright.y,value: 'half_right_horizonal'}];
-        for(let yi= pright.y; yi>pleft.y; yi--){
+        lines = [];
+        for(let yi= pright.y - 1; yi >= pleft.y; yi--){
             lines.push({x: pright.x ,y: yi ,value: 'horizonal'});
         }
-        for(let yi = pleft.y; yi >= 0; yi--){
+        for(let yi = pleft.y -1 ; yi >= 0; yi--){
 
             lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
 
@@ -274,12 +311,12 @@ class Game extends React.Component {
         }
 
         //up to down
-        lines = [{x: pup.x,y: pup.y,value: 'half_down_vertical'}, {x: pdown.x,y: pdown.y,value: 'half_up_vertical'}];
-        for(let xi= pup.x; xi<pdown.x; xi++){
+        lines = [];
+        for(let xi= pup.x + 1; xi <= pdown.x; xi++){
             lines.push({x: xi ,y: pup.y ,value: 'vertical'});
         }
         
-        for(let xi = pdown.x; xi<= maxX+1; xi++){
+        for(let xi = pdown.x + 1; xi<= maxX+1; xi++){
 
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi) && this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
@@ -294,11 +331,11 @@ class Game extends React.Component {
         }
         
         //down to up
-        lines = [{x: pup.x,y: pup.y,value: 'half_up_vertical'}, {x: pdown.x,y: pdown.y,value: 'half_down_vertical'}];
-        for(let xi= pdown.x; xi<pup.x; xi--){
+        lines = [];
+        for(let xi= pdown.x - 1; xi >= pup.x; xi--){
             lines.push({x: xi ,y: pdown.y ,value: 'vertical'});
         }
-        for(let xi = pup.y; xi >= 0; xi--){
+        for(let xi = pup.x - 1; xi >= 0; xi--){
 
             lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineY(pdown.x, xi, pdown.y) && this.checkLineX(pup.y, pdown.y, xi)&& this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
@@ -366,7 +403,10 @@ class Game extends React.Component {
 
         if(this.checkRectY(p1, p2)) return true;
 
-        //Case2: two points out of bound of the rectangle
+        //Case4+5: two points int edge of the rectangle
+        if(this.checkEdge(p1, p2)) return true;
+
+        //Case6: two points out of bound of the rectangle
         if(this.checkExtendX(p1, p2, col)) return true;
 
         if(this.checkExtendY(p1, p2, row)) return true;
