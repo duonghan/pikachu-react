@@ -114,15 +114,17 @@ class Game extends React.Component {
 
         let yleft = Math.min(y1,y2);
         let yright = Math.max(y1,y2);
+        let tmp = [];
 
         for( let yi= yleft + 1 ; yi< yright; yi++){
             if(this.state.items[x][yi] !== 0){
                 return false;
             }
             
-            lines.push({x: x, y: yi, value: 'horizonal'});
+            tmp.push({x: x, y: yi, value: 'horizonal'});
         }
 
+        lines.push(...tmp);
         return true;
     };
 
@@ -131,14 +133,16 @@ class Game extends React.Component {
 
         let xup = Math.min(x1, x2);
         let xdown = Math.max(x1, x2);
+        let tmp = [];
 
         for( let xi= xup + 1 ; xi< xdown; xi++){
             if(this.state.items[xi][y] !== 0){
                 return false;
             }            
-            lines.push({x: xi, y: y, value: 'vertical'});
+            tmp.push({x: xi, y: y, value: 'vertical'});
         }
 
+        lines.push(...tmp);
         return true;
 
     };
@@ -159,7 +163,7 @@ class Game extends React.Component {
         lines = [];
         for(let yi=pleft.y+1; yi< pright.y; yi++){
 
-            lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
+            // lines.push({x: pleft.x ,y: yi ,value: 'horizonal'}, {x: pright.x,y: yi,value: 'horizonal'});
 
             if(this.checkLineX(pleft.y, yi, pleft.x) && this.checkLineY(pleft.x, pright.x, yi) && this.checkLineX(yi, pright.y, pright.x) && this.state.items[pleft.x][yi] == 0 && this.state.items[pright.x][yi] == 0){
                 if(pleft.x > pright.x){
@@ -190,7 +194,7 @@ class Game extends React.Component {
         lines = [];
         for(let xi=pup.x+1; xi< pdown.x; xi++){
 
-            lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
+            // lines.push({x: xi ,y: pup.y ,value: 'vertical'}, {x: xi,y: pdown.y,value: 'vertical'});
 
             if(this.checkLineY(pup.x, xi, pup.y) && this.checkLineX(pup.y, pdown.y, xi) && this.checkLineY(xi, pdown.x, pdown.y)&& this.state.items[xi][pup.y] == 0 && this.state.items[xi][pdown.y] == 0){
 
