@@ -29,7 +29,7 @@ class Game extends React.Component {
     //     debugger;
     // }
     // componentDidMount () {
-    //     debugger;
+        
     // }
     // componentWillReceiveProps() {
     //     debugger;
@@ -43,26 +43,41 @@ class Game extends React.Component {
     // }
 
     componentDidUpdate(prevProps, prevState) {
-      
-        
-        // if(this.doneLine){
-        //     lines.map((line) =>{
-        //         newItems[line.x][line.y] = 0;
-        //     });
-    
-        //     this.setState({
-        //         items: newItems,
-        //         square1: null,
-        //         square2: null
-        //     });
-        // }
 
-        
+        if(this.doneLine){
+            lines.map((line) =>{
+                newItems[line.x][line.y] = 0;
+            });
+            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+            
+            setTimeout(
+                () => {
+                    this.setState({
+                        items: newItems,
+                        square1: null,
+                        square2: null
+                    });
+                } , 500
+            );
+         
+           this.doneLine = false;
+           return;
+        }
+
+        if(this.hasLine){
+            this.hasLine = false;
+            this.doneLine = true;
+
+            this.setState({
+                items: newItems,
+            });
+
+            return;
+        } 
 
         if (this.state.square1 && this.state.square2) {
             newItems = this.state.items.slice();
-            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-
+            
             if(!this.isPair(this.state.square1, this.state.square2)){
                 this.setState({
                     square1: null,
@@ -73,22 +88,16 @@ class Game extends React.Component {
                 lines.map((line) =>{
                     newItems[line.x][line.y] = line.value;
                 });
+                
+                this.setState({
+                    score: prevState.score + 20,
+                });
+
                 this.hasLine = true;
-            }   
-        }
+            }             
 
-        if(this.hasLine){
-            this.hasLine = false;
-            this.doneLine = true;
-
-            this.setState({
-                items: newItems,
-                score: prevState.score + 20,
-            });
         }
-        
-        
-        
+             
     }
 
     // test if two points on a line (vertical or horizontal)
