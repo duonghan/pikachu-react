@@ -15,7 +15,7 @@ function getRandom(a,b){
 };
 
 //Convert position of item in 1 dimensional array to 2 dimensional array
-//e.g: arr1[15] -> arr2[2][1] (2d array with 7 rows and 14 columns)
+//e.g: arr1[15] -> arr2[2][1] (2d array width 7 rows and 14 columns)
 function getRow(n,col){
     return Math.ceil(n/col);
 };

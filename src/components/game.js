@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './board';
 import { getBoard, reloadBoard } from '../functions/generator';
+import Timer from './timer';
 
 const row = 7;
 const col = 14;
@@ -20,6 +21,7 @@ class Game extends React.Component {
             square1: null,
             square2: null,
             reload: 10,
+            time: 360,
         };
 
         this.hasLine = false;
@@ -44,6 +46,11 @@ class Game extends React.Component {
     // }
 
     componentDidUpdate(prevProps, prevState) {
+
+        //kiem tra dieu kien thua
+        if(this.state.time === 0 || this.state.reload === 0){
+            alert('You losed!!!');
+        }
 
         //Vong4
         if(this.doneLine){
@@ -431,6 +438,10 @@ class Game extends React.Component {
         return false;
     };
 
+    /**
+     * Kiem tra xem con truong hop nao an duoc khong??
+     * @returns {boolean}
+     */
     isExist(){
         let tmp = this.state.items.slice();
         let list = [];
@@ -468,6 +479,7 @@ class Game extends React.Component {
                 <hr/>
 
                 <div className="score-board">
+                    <Timer width={this.state.time} />
                     <h3>Score: {this.state.score === 980 ? "You win": this.state.score}</h3>
                     <h4>Reload Time Count: {this.state.reload}</h4>
                     <button onClick={this.reloadHandler}>Reload</button>
@@ -476,6 +488,5 @@ class Game extends React.Component {
         );
     }
 }
-
 
 export default Game;

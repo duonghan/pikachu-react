@@ -5,7 +5,7 @@ class Timer extends React.Component{
         super(props);
         
         this.state = {
-            with: this.props.with,
+            width: this.props.width,
         }
     }
 
@@ -21,9 +21,9 @@ class Timer extends React.Component{
     }
 
     update(){
-        if(this.state.with > 0){
+        if(this.state.width > 0){
             this.setState({
-                with: this.state.with - 1,
+                width: this.state.width - 1,
             });
         }
     }
@@ -31,7 +31,7 @@ class Timer extends React.Component{
     render(){
         return(
             <div className="myProgress">
-                <div className="myBar" style = {{width: this.state.with/this.props.with*100 +'%' }}></div>
+                <div className="myBar" style = {{width: this.state.width/this.props.width*100 +'%' }}></div>
             </div>
         );
     };
