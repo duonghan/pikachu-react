@@ -21,4 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #temp files
-/components/temp.js
+src/components/temp.js
+src/components/game-temp.js
