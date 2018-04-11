@@ -58,23 +58,28 @@ export function getBoard(row, col, amount){
  * @param {[][]: 2-dim array is source array]} source 
  */
 export function reloadBoard(sourceArr, row, col){
-    var tmp = [];
-    var list = range(row*col);
-    var index;
+    let tmpIndex = []; //Contains index of items which has value
+    let tmpItems = [];  //Contains value of above items
+    let index;
 
-    sourceArr.map(item =>{
-        let arr = item.filter(value => {
-            return value !== 0;
-        });
-        tmp.push(...arr);
-    });
 
-    var table = sourceArr.slice().map(value => value.fill(0));
+    for(let i = 1; i <= row; i++){
+        for(let j = 1; j <= col; j++ ){
+            if(sourceArr[i][j] !== 0){
+                tmpIndex.push({i,j});
+                tmpItems.push(sourceArr[i][j]);
+            }
+        }
+    }
 
-    for(let i = 0; i< tmp.length; i++){
-        index = getRandom(1, list.length-1);
-        table[getRow(list[index],col)][getCol(list[index],col)] = tmp[i];
-        list[index] = list.pop();
+    let table = sourceArr.slice().map(value => value.fill(0));
+
+    for(let k = 0; k < tmpIndex.length; k++){
+        index = getRandom(0, tmpItems.length-1);
+
+        //
+        table[tmpIndex[k].i][tmpIndex[k].j] = tmpItems[index];
+        tmpItems[index] = tmpItems.pop();
     }
     
     return table;
