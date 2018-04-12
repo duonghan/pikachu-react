@@ -438,7 +438,7 @@ class Game extends React.Component {
      * Kiem tra kha nang con co the an diem cua bang pokemon
      */
     isExist(){
-        let tmp = this.state.items.slice(); //ban sao cua 
+        let tmp = this.state.items.slice(); //ban sao cua item
         let list = []; //mảng của cách 1
         let listPosItem = new Array(amount+1); // mảng 2 chiều lưu vị trí theo từng pokemon, index là giá trị của pokemon
         let i,j,k; //các iterator
