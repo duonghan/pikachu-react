@@ -3,7 +3,7 @@ import React from 'react';
 import Board from './Board';
 import { getBoard, reloadBoard, getListPosItem} from '../functions/generator';
 import Timer from './Timer';
-import {moveTop2Down, moveTop2Down, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown} from './Lervels';
+import { moveTop2Down, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
 
 const row = 7;
@@ -29,6 +29,7 @@ class Game extends React.Component {
             square2: null,
             reload: 10,
             time: 360,
+            level: 1,
         };
 
         this.hasLine = false;
@@ -74,45 +75,7 @@ class Game extends React.Component {
             newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
             lastLines = [];
 
-             // -------------------- startLevel2---------------------------
-
-            // level2Top-Down
-            // newItems = this.moveTop2Down(newItems, this.state.square1.y);
-            // newItems = this.moveTop2Down(newItems, this.state.square2.y);
-
-            // level2Down-top
-            // newItems = this.moveDown2Top(newItems, this.state.square1.y);
-            // newItems = this.moveDown2Top(newItems, this.state.square2.y);
-
-            // level2Right-Left
-            // newItems = this.moveRight2Left(newItems, this.state.square1.x);
-            // newItems = this.moveRight2Left(newItems, this.state.square2.x);
-
-            // level2Left-Right
-             // newItems = this.moveLeft2Right(newItems, this.state.square1.x);
-             // newItems = this.moveLeft2Right(newItems, this.state.square2.x);
-
-            // --------------------end Level2----------------------
-
-
-            // -----------------------startLevel3-----------------------------
-
-            // level3-center-left-right
-            newItems = this.move3CenterLeftRight(newItems, this.state.square1.x, this.state.square1.y);
-            newItems = this.move3CenterLeftRight(newItems, this.state.square2.x, this.state.square2.y);
-
-            // level3-center-Top- Down
-            // newItems = this.move3CenterTopDown(newItems, this.state.square1.y, this.state.square1.x);
-            // newItems = this.move3CenterTopDown(newItems, this.state.square2.y, this.state.square2.x);
-
-            // level3-Out-Left-Right
-           // newItems = this.move3OutLeftRight(newItems, this.state.square1.x, this.state.square1.y);
-             // newItems = this.move3OutLeftRight(newItems, this.state.square2.x,this.state.square2.y);
-
-            // level3-Out TopDown
-            // newItems = this.move3OutTopDown(newItems, this.state.square1.x, this.state.square1.y);
-             // newItems = this.move3OutTopDown(newItems, this.state.square2.x, this.state.square2.y);
-            // -----------------------endLevel3-----------------------------------
+            this.handleLevel(this.state.level);
 
             setTimeout(
                 () => {
@@ -475,6 +438,48 @@ class Game extends React.Component {
         isNew = true;
     }
 
+    handleLevel(level){
+
+        switch (level) {
+            case 2:
+                // level2Top-Down
+                newItems = this.moveTop2Down(newItems, this.state.square1.y);
+                newItems = this.moveTop2Down(newItems, this.state.square2.y);
+
+                // level2Down-top
+                newItems = this.moveDown2Top(newItems, this.state.square1.y);
+                newItems = this.moveDown2Top(newItems, this.state.square2.y);
+
+                // level2Right-Left
+                newItems = this.moveRight2Left(newItems, this.state.square1.x);
+                newItems = this.moveRight2Left(newItems, this.state.square2.x);
+
+                // level2Left-Right
+                newItems = this.moveLeft2Right(newItems, this.state.square1.x);
+                newItems = this.moveLeft2Right(newItems, this.state.square2.x);
+                break;
+
+            case 3:
+                newItems = this.move3CenterLeftRight(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = this.move3CenterLeftRight(newItems, this.state.square2.x, this.state.square2.y);
+
+                // level3-center-Top- Down
+                newItems = this.move3CenterTopDown(newItems, this.state.square1.y, this.state.square1.x);
+                newItems = this.move3CenterTopDown(newItems, this.state.square2.y, this.state.square2.x);
+
+                // level3-Out-Left-Right
+                newItems = this.move3OutLeftRight(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = this.move3OutLeftRight(newItems, this.state.square2.x,this.state.square2.y);
+
+                // level3-Out TopDown
+                newItems = this.move3OutTopDown(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = this.move3OutTopDown(newItems, this.state.square2.x, this.state.square2.y);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     /**
      * Tra ve trang thai an diem. True: co the an diem. False: khong.
@@ -570,8 +575,9 @@ class Game extends React.Component {
 
                 <div className="score-board">
                     <Timer width={this.state.time} onFinishInterval={this.onTimeout}/>
-                    <h3>Score: {this.state.score === 980 ? 'You win' : this.state.score}</h3>
-                    <h4>Reload Time Count: {this.state.reload}</h4>
+                    <h2 className={'level'} >Level: {this.state.level}</h2>
+                    <h3 className={'score'} >Score: {this.state.score === 980 ? this.setState({level: this.state.level + 1}) : this.state.score}</h3>
+                    <h4 className={'reload'} >Reload Time Count: {this.state.reload}</h4>
                     <button onClick={this.reloadHandler}>Reload</button>
                 </div>
             </div>
