@@ -103,3 +103,15 @@ hr {
     line-height: 30px;
     color: white;
 }
+
+.level{
+    color: #994426;
+}
+
+.score{
+    color: forestgreen;
+}
+
+.reload{
+    color: dodgerblue;
+}
