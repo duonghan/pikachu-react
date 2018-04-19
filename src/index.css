@@ -7,7 +7,9 @@ ol,
 ul {
     padding-left: 30px;
 }
-
+.board-row {
+    height: 51px;
+}
 .board-row:after {
     clear: both;
     content: "";
@@ -72,11 +74,14 @@ ul {
 .game-info {
     margin-left: 20px;
 }
-
+.game-board {
+    width: 70%;
+}
 .score-board {
     margin-left: 20px;
     font-family: Arial;
     font-size: 20px;
+    width: 30%;
 }
 
 hr {
