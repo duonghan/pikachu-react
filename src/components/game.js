@@ -3,7 +3,7 @@ import React from 'react';
 import Board from './Board';
 import { getBoard, reloadBoard, getListPosItem} from '../functions/generator';
 import Timer from './Timer';
-import { moveTop2Down, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
+import { moveTop2Down, moveDown2Top, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
 
 const row = 7;
@@ -15,6 +15,7 @@ let count = 0; // number of correct items
 let i, j, k;  // iterator
 let isJustReloaded = false;
 let isNew = false;
+let isMount = true;
 let newItems;
 
 class Game extends React.Component {
@@ -42,7 +43,10 @@ class Game extends React.Component {
     //     debugger;
     // }
     componentDidMount() {
-        if(!this.isExist()) this.reloadHandler();
+        if(isMount && !this.isExist()){
+            this.reloadHandler();
+            isMount = false;
+        }
     }
     // componentWillReceiveProps() {
     //     debugger;
@@ -74,8 +78,8 @@ class Game extends React.Component {
 
             newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
             lastLines = [];
-
             this.handleLevel(this.state.level);
+            
 
             setTimeout(
                 () => {
@@ -397,10 +401,6 @@ class Game extends React.Component {
             return;
         }
 
-        // if(this.state.square2){
-        //     throw Error('Sai logic lap trinh');
-        // }
-
         this.setState({
             square2: {x: i, y: j}
         });
@@ -431,6 +431,7 @@ class Game extends React.Component {
             score: 0,
             reload: 10,
             time: 360,
+            level: 1
         });
 
         this.listPosItem = getListPosItem();
@@ -443,37 +444,37 @@ class Game extends React.Component {
         switch (level) {
             case 2:
                 // level2Top-Down
-                newItems = this.moveTop2Down(newItems, this.state.square1.y);
-                newItems = this.moveTop2Down(newItems, this.state.square2.y);
+                newItems = moveTop2Down(newItems, this.state.square1.y);
+                newItems = moveTop2Down(newItems, this.state.square2.y);
 
                 // level2Down-top
-                newItems = this.moveDown2Top(newItems, this.state.square1.y);
-                newItems = this.moveDown2Top(newItems, this.state.square2.y);
+                newItems = moveDown2Top(newItems, this.state.square1.y);
+                newItems = moveDown2Top(newItems, this.state.square2.y);
 
                 // level2Right-Left
-                newItems = this.moveRight2Left(newItems, this.state.square1.x);
-                newItems = this.moveRight2Left(newItems, this.state.square2.x);
+                newItems = moveRight2Left(newItems, this.state.square1.x);
+                newItems = moveRight2Left(newItems, this.state.square2.x);
 
                 // level2Left-Right
-                newItems = this.moveLeft2Right(newItems, this.state.square1.x);
-                newItems = this.moveLeft2Right(newItems, this.state.square2.x);
+                newItems = moveLeft2Right(newItems, this.state.square1.x);
+                newItems = moveLeft2Right(newItems, this.state.square2.x);
                 break;
 
             case 3:
-                newItems = this.move3CenterLeftRight(newItems, this.state.square1.x, this.state.square1.y);
-                newItems = this.move3CenterLeftRight(newItems, this.state.square2.x, this.state.square2.y);
+                newItems = move3CenterLeftRight(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = move3CenterLeftRight(newItems, this.state.square2.x, this.state.square2.y);
 
                 // level3-center-Top- Down
-                newItems = this.move3CenterTopDown(newItems, this.state.square1.y, this.state.square1.x);
-                newItems = this.move3CenterTopDown(newItems, this.state.square2.y, this.state.square2.x);
+                newItems = move3CenterTopDown(newItems, this.state.square1.y, this.state.square1.x);
+                newItems = move3CenterTopDown(newItems, this.state.square2.y, this.state.square2.x);
 
                 // level3-Out-Left-Right
-                newItems = this.move3OutLeftRight(newItems, this.state.square1.x, this.state.square1.y);
-                newItems = this.move3OutLeftRight(newItems, this.state.square2.x,this.state.square2.y);
+                newItems = move3OutLeftRight(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = move3OutLeftRight(newItems, this.state.square2.x,this.state.square2.y);
 
                 // level3-Out TopDown
-                newItems = this.move3OutTopDown(newItems, this.state.square1.x, this.state.square1.y);
-                newItems = this.move3OutTopDown(newItems, this.state.square2.x, this.state.square2.y);
+                newItems = move3OutTopDown(newItems, this.state.square1.x, this.state.square1.y);
+                newItems = move3OutTopDown(newItems, this.state.square2.x, this.state.square2.y);
                 break;
             default:
                 break;

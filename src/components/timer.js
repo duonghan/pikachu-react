@@ -8,6 +8,7 @@ class Timer extends React.Component {
         this.state = {
             width: this.props.width,
         };
+        this.update = this.update.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +20,17 @@ class Timer extends React.Component {
     componentDidUpdate() {
         if(this.state.width === 0) {
             this.props.onFinishInterval();
+            
+            clearInterval(this.timerID);
+
+            this.setState({
+                width: this.props.width,
+            });
+
+            this.timerID = setInterval(
+                () => this.update(),
+                1000
+            );
         }
     }
 
