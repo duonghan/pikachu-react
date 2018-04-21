@@ -20,7 +20,7 @@ class Timer extends React.Component {
     componentDidUpdate() {
         if(this.state.width === 0) {
             this.props.onFinishInterval();
-            
+
             clearInterval(this.timerID);
 
             this.setState({

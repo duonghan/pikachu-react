@@ -6,8 +6,8 @@ import Timer from './Timer';
 import { moveTop2Down, moveDown2Top, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
 
-const row = 7;
-const col = 14;
+const row = 5;
+const col = 4;
 const amount = 36;
 let lines = [];
 let lastLines = [];
@@ -17,6 +17,7 @@ let isJustReloaded = false;
 let isNew = false;
 let isMount = true;
 let newItems;
+let vong5 = false;
 
 class Game extends React.Component {
 
@@ -31,6 +32,7 @@ class Game extends React.Component {
             reload: 10,
             time: 360,
             level: 1,
+            vong5: false
         };
 
         this.hasLine = false;
@@ -43,9 +45,8 @@ class Game extends React.Component {
     //     debugger;
     // }
     componentDidMount() {
-        if(isMount && !this.isExist()){
+        if(!this.isExist()) {
             this.reloadHandler();
-            isMount = false;
         }
     }
     // componentWillReceiveProps() {
@@ -68,6 +69,16 @@ class Game extends React.Component {
             }
         }
 
+        if(this.state.vong5 === true){
+
+            if(!this.isExist()) {
+                this.reloadHandler();
+            }
+            this.setState({
+                vong5: false
+            });
+        }
+
         // Vong4
         if(this.doneLine) {
             lastLines.map((line) =>{
@@ -78,20 +89,19 @@ class Game extends React.Component {
 
             newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
             lastLines = [];
-            this.handleLevel(this.state.level);
-            
+            // this.handleLevel(this.state.level);
+            // this.handleLevel(this.state.level);
+
 
             setTimeout(
                 () => {
                     this.setState({
                         items: newItems,
                         square1: null,
-                        square2: null
+                        square2: null,
+                        vong5: true,
                     });
-
-                    if(!this.isExist()) {
-                        this.reloadHandler();
-                    }
+                    // vong5 = true;
                 }, 500
             );
 
@@ -126,7 +136,7 @@ class Game extends React.Component {
                         && this.correctItems[value][i].square2.y === this.state.square1.y
                         && this.correctItems[value][i].square1.x === this.state.square2.x
                         && this.correctItems[value][i].square1.y === this.state.square2.y)
-                    ) {
+                ) {
                     lastLines = this.correctItems[value][i].lines.slice();
 
                     if (lastLines.length > 0) {
@@ -390,19 +400,19 @@ class Game extends React.Component {
         return false;
     };
 
-    handleClick = (i, j) => {
+    handleClick = (pi, pj) => {
         // Check if this items is out of board
-        if(this.state.items[i][j] === 0) return;
+        if(this.state.items[pi][pj] === 0) return;
 
         if(!this.state.square1) {
             this.setState({
-                square1: {x: i, y: j}
+                square1: {x: pi, y: pj}
             });
             return;
         }
 
         this.setState({
-            square2: {x: i, y: j}
+            square2: {x: pi, y: pj}
         });
     };
 
@@ -439,43 +449,55 @@ class Game extends React.Component {
         isNew = true;
     }
 
-    handleLevel(level){
-
+    handleLevel(level) {
         switch (level) {
             case 2:
                 // level2Top-Down
                 newItems = moveTop2Down(newItems, this.state.square1.y);
                 newItems = moveTop2Down(newItems, this.state.square2.y);
+                break;
 
+            case 3:
                 // level2Down-top
                 newItems = moveDown2Top(newItems, this.state.square1.y);
                 newItems = moveDown2Top(newItems, this.state.square2.y);
+                break;
 
+            case 4:
                 // level2Right-Left
                 newItems = moveRight2Left(newItems, this.state.square1.x);
                 newItems = moveRight2Left(newItems, this.state.square2.x);
+                break;
 
+            case 5:
                 // level2Left-Right
                 newItems = moveLeft2Right(newItems, this.state.square1.x);
                 newItems = moveLeft2Right(newItems, this.state.square2.x);
                 break;
 
-            case 3:
+            case 6:
                 newItems = move3CenterLeftRight(newItems, this.state.square1.x, this.state.square1.y);
                 newItems = move3CenterLeftRight(newItems, this.state.square2.x, this.state.square2.y);
+                break;
 
+            case 7:
                 // level3-center-Top- Down
                 newItems = move3CenterTopDown(newItems, this.state.square1.y, this.state.square1.x);
                 newItems = move3CenterTopDown(newItems, this.state.square2.y, this.state.square2.x);
+                break;
 
+            case 8:
                 // level3-Out-Left-Right
                 newItems = move3OutLeftRight(newItems, this.state.square1.x, this.state.square1.y);
-                newItems = move3OutLeftRight(newItems, this.state.square2.x,this.state.square2.y);
+                newItems = move3OutLeftRight(newItems, this.state.square2.x, this.state.square2.y);
+                break;
 
+            case 9:
                 // level3-Out TopDown
                 newItems = move3OutTopDown(newItems, this.state.square1.x, this.state.square1.y);
                 newItems = move3OutTopDown(newItems, this.state.square2.x, this.state.square2.y);
                 break;
+
             default:
                 break;
         }
@@ -557,7 +579,7 @@ class Game extends React.Component {
     }
 
     onTimeout = () =>{
-        if(window.confirm('You losed! Restart game?')) {this.renew();}
+        if(window.confirm('You losed cuz timeout! Restart game?')) {this.renew();}
     }
 
     render() {
@@ -577,7 +599,7 @@ class Game extends React.Component {
                 <div className="score-board">
                     <Timer width={this.state.time} onFinishInterval={this.onTimeout}/>
                     <h2 className={'level'} >Level: {this.state.level}</h2>
-                    <h3 className={'score'} >Score: {this.state.score === 980 ? this.setState({level: this.state.level + 1}) : this.state.score}</h3>
+                    <h3 className={'score'} >Score: {this.state.score === 980 * this.state.level ? () => this.setState({level: this.state.level + 1}) : this.state.score}</h3>
                     <h4 className={'reload'} >Reload Time Count: {this.state.reload}</h4>
                     <button onClick={this.reloadHandler}>Reload</button>
                 </div>
