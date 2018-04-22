@@ -1,7 +1,8 @@
 /* eslint-disable react/no-did-update-set-state */
 import React from 'react';
 import Board from './Board';
-import { getBoard, reloadBoard, getListPosItem} from '../functions/generator';
+import { getBoard, reloadBoard} from '../functions/Generator';
+import {getListPosItem} from "../functions/Binder";
 import Timer from './Timer';
 import { moveTop2Down, moveDown2Top, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
@@ -13,31 +14,30 @@ let lines = [];
 let lastLines = [];
 let count = 0; // number of correct items
 let i, j, k;  // iterator
-let isJustReloaded = false;
-let isNew = false;
-let isMount = true;
 let newItems;
-let vong5 = false;
 
 class Game extends React.Component {
 
     constructor(props) {
         super(props);
 
+        let _newItems = getBoard(row, col, amount)
         this.state = {
-            items: getBoard(row, col, amount),
+            items: _newItems,
             score: 0,
             square1: null,
             square2: null,
             reload: 10,
             time: 360,
             level: 1,
-            vong5: false
+            vong5: false,
+            isJustReloaded: false,
+            isNew: false
         };
 
         this.hasLine = false;
         this.doneLine = false;
-        this.listPosItem = getListPosItem();
+        this.listPosItem = getListPosItem(_newItems, row, col, amount);
         this.correctItems = new Array(amount + 1);
     }
 
@@ -61,11 +61,22 @@ class Game extends React.Component {
     // }
 
     componentDidUpdate(prevProps, prevState) {
-        if(isJustReloaded || isNew) {
+
+        if(this.state.isJustReloaded === true) {
             if(!this.isExist()) {
                 this.reloadHandler();
-                isJustReloaded = false;
-                isNew = false;
+                this.setState({
+                    isJustReloaded: false,
+                })
+            }
+        }
+
+        if(this.state.isNew === true) {
+            if(!this.isExist()) {
+                this.reloadHandler();
+                this.setState({
+                    isNew: false,
+                })
             }
         }
 
@@ -89,8 +100,7 @@ class Game extends React.Component {
 
             newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
             lastLines = [];
-            // this.handleLevel(this.state.level);
-            // this.handleLevel(this.state.level);
+            this.handleLevel(this.state.level);
 
 
             setTimeout(
@@ -428,25 +438,28 @@ class Game extends React.Component {
                 reload: this.state.reload - 1,
             });
 
-            this.listPosItem = getListPosItem();
+            this.listPosItem = getListPosItem(_newItems, row, col ,amount);
         }
 
-        isJustReloaded = true;
+        this.setState({
+            isJustReloaded: true,
+        });
     };
 
     renew() {
         // save score into log...
+        let _newItems = getBoard(row, col, amount);
         this.setState({
-            items: getBoard(row, col, amount),
+            items: _newItems,
             score: 0,
             reload: 10,
             time: 360,
-            level: 1
+            level: 1,
+            isNew: true
         });
 
-        this.listPosItem = getListPosItem();
+        this.listPosItem = getListPosItem(_newItems, row, col, amount);
         this.correctItems = new Array(amount + 1);
-        isNew = true;
     }
 
     handleLevel(level) {
@@ -501,6 +514,20 @@ class Game extends React.Component {
             default:
                 break;
         }
+    }
+
+    doNextLevel = () => {
+        let _newItems = getBoard(row, col, amount);
+        this.setState({
+            items: _newItems,
+            reload: this.state.reload + 1,
+            time: 360,
+            isNew: true,
+            level: this.state.level + 1,
+        });
+
+        this.listPosItem = getListPosItem(_newItems, row, col, amount);
+        this.correctItems = new Array(amount + 1);
     }
 
 
@@ -583,6 +610,10 @@ class Game extends React.Component {
     }
 
     render() {
+        if(this.state.score === 10* col * row * this.state.level){
+            this.doNextLevel();
+        }
+
         return (
             <div className="game">
                 <div className="game-board">
@@ -599,7 +630,7 @@ class Game extends React.Component {
                 <div className="score-board">
                     <Timer width={this.state.time} onFinishInterval={this.onTimeout}/>
                     <h2 className={'level'} >Level: {this.state.level}</h2>
-                    <h3 className={'score'} >Score: {this.state.score === 980 * this.state.level ? () => this.setState({level: this.state.level + 1}) : this.state.score}</h3>
+                    <h3 className={'score'} >Score: {this.state.score}</h3>
                     <h4 className={'reload'} >Reload Time Count: {this.state.reload}</h4>
                     <button onClick={this.reloadHandler}>Reload</button>
                 </div>
