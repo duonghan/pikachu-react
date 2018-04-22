@@ -1,24 +1,30 @@
+
 /**
- * Generate unique random items function
- * @param row
- * @param col
- * @param amount
- * @returns {*[][]}
+ *
+ * @param n
+ * @returns {*[1,2,3,4,...,n]}
  */
-
-// let listPosItems = [];
-
-// Return an array such as: [0,1,2,...,n]
 function range(n) {
     return [...Array(n + 1).keys()];
 }
 
+/**
+ *
+ * @param a
+ * @param b
+ * @returns random value between (a,b)
+ */
 function getRandom(a, b) {
     return Math.floor(Math.random() * (b - a)) + a;
 }
 
-// Convert position of item in 1 dimensional array to 2 dimensional array
-// e.g: arr1[15] -> arr2[2][1] (2d array width 7 rows and 14 columns)
+/**
+ * @description Convert position of item in 1 dimensional array to 2 dimensional array
+ * @example arr1[15] -> arr2[2][1] (2d array width 7 rows and 14 columns)
+ * @param n
+ * @param col
+ * @returns {number: row index of table}
+ */
 function getRow(n, col) {
     return Math.ceil(n / col);
 }
@@ -27,11 +33,18 @@ function getCol(n, col) {
     return n % col === 0 ? col : n % col;
 }
 
+/**
+ * Generate unique random items function
+ * @param row
+ * @param col
+ * @param amount
+ * @returns {*[][]}
+ */
 export function getBoard(row, col, amount) {
     const list = range(row * col);  // store values as index of items.
     let remain = row * col;
     const table = [...Array(row + 2)].fill(0).map((_)=> [...Array(col + 2)].fill(0));
-    let pos, pairpos, index;
+    let pos, pair_pos, index;
 
     while(remain > 0) {
         const pokemon = (remain / 2) > amount ? amount : remain / 2;
@@ -45,10 +58,10 @@ export function getBoard(row, col, amount) {
 
             // pick a pair position
             index = getRandom(1, list.length - 1);
-            pairpos = list[index];
+            pair_pos = list[index];
             list[index] = list.pop();
 
-            table[getRow(pos, col)][getCol(pos, col)] = table[getRow(pairpos, col)][getCol(pairpos, col)] = i;
+            table[getRow(pos, col)][getCol(pos, col)] = table[getRow(pair_pos, col)][getCol(pair_pos, col)] = i;
         }
     }
 
@@ -56,12 +69,12 @@ export function getBoard(row, col, amount) {
 }
 
 /**
- *
+ * @description generate random board from source board
  * @param {[][]: 2-dim array is source array]} source
  */
 export function reloadBoard(sourceArr, row, col, amount) {
-    const tmpIndex = []; // Contains index of items which has value
-    const tmpItems = [];  // Contains value of above items
+    const tmpIndex = [];    // Contains index of items which has value
+    const tmpItems = [];    // Contains value of above items
     let index;
 
     for(let i = 1; i <= row; i++) {
