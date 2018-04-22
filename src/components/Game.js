@@ -42,7 +42,7 @@ class Game extends React.Component {
     }
 
     // componentWillMount() {
-    //     debugger;
+    //
     // }
     componentDidMount() {
         if(!this.isExist()) {
@@ -60,129 +60,24 @@ class Game extends React.Component {
     //     debugger;
     // }
 
-    componentDidUpdate(prevProps, prevState) {
+    doNextLevel = () => {
+        let _newItems = getBoard(row, col, amount);
+        console.log("Old items:");
+        console.log(this.state.items);
 
-        if(this.state.isJustReloaded === true) {
-            if(!this.isExist()) {
-                this.reloadHandler();
-                this.setState({
-                    isJustReloaded: false,
-                })
-            }
-        }
+        this.setState({
+            items: _newItems,
+            reload: this.state.reload + 1,
+            time: 360,
+            isNew: true,
+            level: this.state.level + 1,
+        });
 
-        if(this.state.isNew === true) {
-            if(!this.isExist()) {
-                this.reloadHandler();
-                this.setState({
-                    isNew: false,
-                })
-            }
-        }
+        console.log("New items:");
+        console.log(this.state.items);
 
-        if(this.state.vong5 === true){
-
-            if(!this.isExist()) {
-                this.reloadHandler();
-            }
-            this.setState({
-                vong5: false
-            });
-        }
-
-        // Vong4
-        if(this.doneLine) {
-            lastLines.map((line) =>{
-                newItems[line.x][line.y] = 0;
-            });
-
-            // console.log(lastLines);
-
-            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
-            lastLines = [];
-            this.handleLevel(this.state.level);
-
-
-            setTimeout(
-                () => {
-                    this.setState({
-                        items: newItems,
-                        square1: null,
-                        square2: null,
-                        vong5: true,
-                    });
-                    // vong5 = true;
-                }, 500
-            );
-
-            this.doneLine = false;
-            return;
-        }
-
-        // Vong3
-        if(this.hasLine) {
-            this.hasLine = false;
-            this.doneLine = true;
-
-            this.setState({
-                items: newItems,
-            });
-
-            return;
-        }
-
-        // Vong 1
-        if (this.state.square1 && this.state.square2) {
-            newItems = this.state.items.slice();
-            const value = newItems[this.state.square1.x][this.state.square1.y];
-
-            // Vong 2
-            for(i = 0; i < this.correctItems[value].length; i++) {
-                if ((this.correctItems[value][i].square1.x === this.state.square1.x
-                    && this.correctItems[value][i].square1.y === this.state.square1.y
-                    && this.correctItems[value][i].square2.x === this.state.square2.x
-                    && this.correctItems[value][i].square2.y === this.state.square2.y)
-                    || (this.correctItems[value][i].square2.x === this.state.square1.x
-                        && this.correctItems[value][i].square2.y === this.state.square1.y
-                        && this.correctItems[value][i].square1.x === this.state.square2.x
-                        && this.correctItems[value][i].square1.y === this.state.square2.y)
-                ) {
-                    lastLines = this.correctItems[value][i].lines.slice();
-
-                    if (lastLines.length > 0) {
-                        lastLines.map((line) => {
-                            newItems[line.x][line.y] = line.value;
-                        });
-                    }
-
-                    this.setState({
-                        score: prevState.score + 20,
-                    });
-
-                    this.hasLine = true;
-
-                    // remove from listPosItems
-                    this.listPosItem[value][this.correctItems[value][i].item1] = this.listPosItem[value][this.listPosItem[value].length - 1];
-                    this.listPosItem[value].pop();
-                    this.listPosItem[value][this.correctItems[value][i].item2] = this.listPosItem[value][this.listPosItem[value].length - 1];
-                    this.listPosItem[value].pop();
-
-                    // remove couple from correctItems array
-                    this.correctItems[value][i] = this.correctItems[value][this.correctItems[value].length - 1];
-                    this.correctItems[value].pop();
-
-                    count --;
-
-                    return;
-                }
-            }
-
-            lines = [];
-            this.setState({
-                square1: null,
-                square2: null
-            });
-        }
+        this.listPosItem = getListPosItem(_newItems, row, col, amount);
+        this.correctItems = new Array(amount + 1);
     }
 
     // test if two points on a line (vertical or horizontal)
@@ -516,18 +411,134 @@ class Game extends React.Component {
         }
     }
 
-    doNextLevel = () => {
-        let _newItems = getBoard(row, col, amount);
-        this.setState({
-            items: _newItems,
-            reload: this.state.reload + 1,
-            time: 360,
-            isNew: true,
-            level: this.state.level + 1,
-        });
+    componentDidUpdate(prevProps, prevState) {
 
-        this.listPosItem = getListPosItem(_newItems, row, col, amount);
-        this.correctItems = new Array(amount + 1);
+        if(this.state.isJustReloaded === true) {
+            if(!this.isExist()) {
+                this.reloadHandler();
+                this.setState({
+                    isJustReloaded: false,
+                })
+            }
+        }
+
+        if(this.state.isNew === true) {
+            if(!this.isExist()) {
+                this.reloadHandler();
+                this.setState({
+                    isNew: false,
+                })
+            }
+        }
+
+        if(this.state.vong5 === true){
+
+            if(!this.isExist()) {
+                this.reloadHandler();
+            }
+
+            if(this.state.score === 10* col * row * this.state.level){
+                this.doNextLevel();
+            }
+
+            this.setState({
+                vong5: false
+            });
+        }
+
+        // Vong4
+        if(this.doneLine) {
+            lastLines.map((line) =>{
+                newItems[line.x][line.y] = 0;
+            });
+
+            // console.log(lastLines);
+
+            newItems[this.state.square1.x][this.state.square1.y] = newItems[this.state.square2.x][this.state.square2.y] = 0;
+            lastLines = [];
+            this.handleLevel(this.state.level);
+
+
+            setTimeout(
+                () => {
+                    this.setState({
+                        items: newItems,
+                        square1: null,
+                        square2: null,
+                        vong5: true,
+                    });
+                    // vong5 = true;
+                }, 500
+            );
+
+            this.doneLine = false;
+            return;
+        }
+
+        // Vong3
+        if(this.hasLine) {
+            this.hasLine = false;
+            this.doneLine = true;
+
+            this.setState({
+                items: newItems,
+            });
+
+            return;
+        }
+
+        // Vong 1
+        if (this.state.square1 && this.state.square2) {
+            newItems = this.state.items.slice();
+            const value = newItems[this.state.square1.x][this.state.square1.y];
+
+            // Vong 2
+            for(i = 0; i < this.correctItems[value].length; i++) {
+                if ((this.correctItems[value][i].square1.x === this.state.square1.x
+                    && this.correctItems[value][i].square1.y === this.state.square1.y
+                    && this.correctItems[value][i].square2.x === this.state.square2.x
+                    && this.correctItems[value][i].square2.y === this.state.square2.y)
+                    || (this.correctItems[value][i].square2.x === this.state.square1.x
+                        && this.correctItems[value][i].square2.y === this.state.square1.y
+                        && this.correctItems[value][i].square1.x === this.state.square2.x
+                        && this.correctItems[value][i].square1.y === this.state.square2.y)
+                ) {
+                    lastLines = this.correctItems[value][i].lines.slice();
+
+                    if (lastLines.length > 0) {
+                        lastLines.map((line) => {
+                            newItems[line.x][line.y] = line.value;
+                        });
+                    }
+
+                    this.setState({
+                        score: prevState.score + 20,
+                    });
+
+                    this.hasLine = true;
+
+                    // remove from listPosItems
+                    this.listPosItem[value][this.correctItems[value][i].item1] = this.listPosItem[value][this.listPosItem[value].length - 1];
+                    this.listPosItem[value].pop();
+                    this.listPosItem[value][this.correctItems[value][i].item2] = this.listPosItem[value][this.listPosItem[value].length - 1];
+                    this.listPosItem[value].pop();
+
+                    // remove couple from correctItems array
+                    this.correctItems[value][i] = this.correctItems[value][this.correctItems[value].length - 1];
+                    this.correctItems[value].pop();
+
+                    count --;
+
+                    return;
+                }
+            }
+
+            lines = [];
+            this.setState({
+                square1: null,
+                square2: null
+            });
+        }
     }
 
 
@@ -610,11 +621,7 @@ class Game extends React.Component {
     }
 
     render() {
-        if(this.state.score === 10* col * row * this.state.level){
-            this.doNextLevel();
-        }
-
-        return (
+         return (
             <div className="game">
                 <div className="game-board">
                     <Board
