@@ -1,3 +1,5 @@
+/* eslint-disable react/no-did-update-set-state */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,6 +9,7 @@ class Timer extends React.Component {
 
         this.state = {
             width: this.props.width,
+            isNew: this.props.isnew,
         };
         this.update = this.update.bind(this);
     }
@@ -17,6 +20,22 @@ class Timer extends React.Component {
             1000
         );
     }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.isnew === true) {
+            clearInterval(this.timerID);
+
+            this.setState({
+                width: this.props.width,
+            });
+
+            this.timerID = setInterval(
+                () => this.update(),
+                1000
+            );
+        }
+    }
+
     componentDidUpdate() {
         if(this.state.width === 0) {
             this.props.onFinishInterval();
