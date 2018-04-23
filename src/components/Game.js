@@ -357,7 +357,7 @@ class Game extends React.Component {
         this.lines = [];       // array contain pokemon connected line (temp array for each isExist method running)
         this.lastLines = [];       // array contain
         this.count = 0;        // number of couple satisfying item case
-        this.newItems;             // 2-dimension (2d) array contain items whenever items state is changed
+        this.newItems = [];             // 2-dimension (2d) array contain items whenever items state is changed
         this.time = 360;
 
         const _new = getBoard(this.row, this.col, this.amount);   // contain items from generator method.
@@ -436,9 +436,7 @@ class Game extends React.Component {
 
         // Round 4: Remove line from board
         if(this.doneLine) {
-            this.lastLines.map((line) =>{
-                this.newItems[line.x][line.y] = 0;
-            });
+            this.lastLines.map((line) => this.newItems[line.x][line.y] = 0);
 
             this.newItems[this.state.square1.x][this.state.square1.y] = this.newItems[this.state.square2.x][this.state.square2.y] = 0;
             this.lastLines = [];
@@ -490,9 +488,7 @@ class Game extends React.Component {
                     this.lastLines = this.satisfiableItems[value][i].lines.slice();
 
                     if (this.lastLines.length > 0) {
-                        this.lastLines.map((line) => {
-                            this.newItems[line.x][line.y] = line.value;
-                        });
+                        this.lastLines.map((line) => this.newItems[line.x][line.y] = line.value);
                     }
 
                     this.setState({
