@@ -2,7 +2,7 @@
 import React from 'react';
 import Board from './Board';
 import { getBoard, reloadBoard} from '../functions/Generator';
-import {getListPosItem} from "../functions/Binder";
+import {getListPosItem} from '../functions/Binder';
 import Timer from './Timer';
 import { moveTop2Down, moveDown2Top, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
@@ -11,26 +11,49 @@ let i, j, k;  // iterator
 
 class Game extends React.Component {
 
+
+    /**
+     * @description update items board when reload event is triggered
+     */
+    reloadHandler = () => {
+        if(this.state.reload <= 0) {
+            if(window.confirm('You lost! Restart game?')) {this.renew();}
+        }else{
+            const oldItems = this.state.items.slice();
+            const _newItems = reloadBoard(oldItems, this.row, this.col, this.amount);
+
+            this.setState({
+                items: _newItems,
+                reload: this.state.reload - 1,
+            });
+
+            this.listPosItem = getListPosItem(_newItems, this.row, this.col, this.amount);
+
+            this.setState({
+                isJustReloaded: true,
+            });
+        }
+    };
     /**
      * @description: create new board and do something when level up
      */
     doNextLevel = () => {
-        let _newItems = getBoard(this.row, this.col, this.amount);
-        console.log(this.state.items);
+        const _newItems = getBoard(this.row, this.col, this.amount);
 
         this.setState({
             items: _newItems,
             reload: this.state.reload + 1,
-            time: 360,
+            time: this.time,
             isNew: true,
             level: this.state.level + 1,
         });
 
-        console.log(this.state.items);
-
         this.listPosItem = getListPosItem(_newItems, this.row, this.col, this.amount);
-        this.satisfiableItems = new Array(this.amount + 1);
     };
+    onTimeout = () =>{
+        if(window.confirm('You lost cuz timeout! Restart game?')) {this.renew();}
+    };
+
     /**
      * @description test if two points on a line (vertical or horizontal)
      * @param abscissa of first item
@@ -69,6 +92,7 @@ class Game extends React.Component {
         this.lines.push(...tmp);
         return true;
     };
+
     /**
      * @description test if two points in bound of the rectangle
      * @param p1: 1th point
@@ -123,6 +147,7 @@ class Game extends React.Component {
 
         return false;
     };
+
     /**
      * @description test if tow point in edge of rectangle
      * @param p1: 1st point
@@ -159,6 +184,7 @@ class Game extends React.Component {
 
         return false;
     };
+
     /**
      * @description test if two points out of bound of the rectangle
      * @param p1: 1st point
@@ -261,6 +287,7 @@ class Game extends React.Component {
 
         return false;
     };
+
     /**
      * @param p1
      * @param p2
@@ -298,9 +325,8 @@ class Game extends React.Component {
         if(this.checkExtendX(p1, p2, this.col)) return true;
 
         return this.checkExtendY(p1, p2, this.row);
-
-
     };
+
     /**
      * @description add clicked items to state.
      * @param pi: abscissa of item
@@ -321,45 +347,20 @@ class Game extends React.Component {
             square2: {x: pi, y: pj}
         });
     };
-    /**
-     * @description update items board when reload event is triggered
-     */
-    reloadHandler = () => {
-
-        if(this.state.reload <= 0) {
-            if(window.confirm('You lost! Restart game?')) {this.renew();}
-        }else{
-            const oldItems = this.state.items.slice();
-            const _newItems = reloadBoard(oldItems, this.row, this.col, this.amount);
-
-            this.setState({
-                items: _newItems,
-                reload: this.state.reload - 1,
-            });
-
-            this.listPosItem = getListPosItem(_newItems, this.row, this.col ,this.amount);
-        }
-
-        this.setState({
-            isJustReloaded: true,
-        });
-    };
-    onTimeout = () =>{
-        if(window.confirm('You lost cuz timeout! Restart game?')) {this.renew();}
-    };
 
     constructor(props) {
         super(props);
 
-        this.row        = 5;        // size of game board
-        this.col        = 4;
-        this.amount     = 36;       // number of pokemon items
-        this.lines      = [];       // array contain pokemon connected line (temp array for each isExist method running)
-        this.lastLines  = [];       // array contain
-        this.count      = 0;        // number of couple satisfying item case
-        this.newItems ;             // 2-dimension (2d) array contain items whenever items state is changed
+        this.row = 5;        // size of game board
+        this.col = 4;
+        this.amount = 36;       // number of pokemon items
+        this.lines = [];       // array contain pokemon connected line (temp array for each isExist method running)
+        this.lastLines = [];       // array contain
+        this.count = 0;        // number of couple satisfying item case
+        this.newItems;             // 2-dimension (2d) array contain items whenever items state is changed
+        this.time = 360;
 
-        let _new = getBoard(this.row, this.col, this.amount);   //contain items from generator method.
+        const _new = getBoard(this.row, this.col, this.amount);   // contain items from generator method.
 
         this.state = {
             items: _new,
@@ -367,20 +368,18 @@ class Game extends React.Component {
             square1: null,
             square2: null,
             reload: 10,
-            time: 360,
+            time: this.time,
             level: 1,
             isWillReload: false,
             isJustReloaded: false,
             isNew: false
         };
 
-
-
         this.hasLine = false;
         this.doneLine = false;
-        this.listPosItem = getListPosItem(_new, this.row, this.col, this.amount);   //contain array of position by
+        this.listPosItem = getListPosItem(_new, this.row, this.col, this.amount);   // contain array of position by
         // value of items
-        this.satisfiableItems = new Array(this.amount + 1);     //contain array of position by satisfiable item's value
+        this.satisfiableItems = new Array(this.amount + 1);     // contain array of position by satisfiable item's value
     }
 
     /**
@@ -393,41 +392,46 @@ class Game extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        // When board is renew
+        if(this.state.isNew === true) {
+            if(!this.isExist()) {
+                this.reloadHandler();
+            }
+
+            this.setState({
+                isNew: false,
+            });
+        }
 
         // When board is reloaded
         if(this.state.isJustReloaded === true) {
             if(!this.isExist()) {
                 this.reloadHandler();
-                this.setState({
-                    isJustReloaded: false,
-                })
             }
-        }
 
-        // When board is renew
-        if(this.state.isNew === true) {
-            if(!this.isExist()) {
-                this.reloadHandler();
-                this.setState({
-                    isNew: false,
-                })
-            }
+            this.setState({
+                isJustReloaded: false,
+            });
         }
 
         // Round 5: Check reload board and level up
-        if(this.state.isWillReload === true){
-
-            if(!this.isExist()) {
-                this.reloadHandler();
-            }
-
-            if(this.state.score === 10* this.col * this.row * this.state.level){
+        if(this.state.isWillReload === true) {
+            if(this.state.score === 10 * this.col * this.row * this.state.level) {
                 this.doNextLevel();
+            }else{
+                // update item's position array
+                this.listPosItem = getListPosItem(this.newItems, this.row, this.col, this.amount);
+
+                if(!this.isExist()) {
+                    this.reloadHandler();
+                }
             }
 
             this.setState({
                 isWillReload: false
             });
+
+            return;
         }
 
         // Round 4: Remove line from board
@@ -473,12 +477,12 @@ class Game extends React.Component {
             const value = this.newItems[this.state.square1.x][this.state.square1.y];
 
             // Round 2: Check if 2 items is satisfiable or not. If yes then update score and assign lastLines value
-            for(i = 0; i < this.satisfiableItems[value].length; i++) {
-                if (  (this.satisfiableItems[value][i].square1.x === this.state.square1.x
+            for(i = 0; i < this.satisfiableItems[value].length; i++) { // compare two object
+                if ( (this.satisfiableItems[value][i].square1.x === this.state.square1.x
                     && this.satisfiableItems[value][i].square1.y === this.state.square1.y
                     && this.satisfiableItems[value][i].square2.x === this.state.square2.x
                     && this.satisfiableItems[value][i].square2.y === this.state.square2.y)
-                    ||(this.satisfiableItems[value][i].square2.x === this.state.square1.x
+                    || (this.satisfiableItems[value][i].square2.x === this.state.square1.x
                     && this.satisfiableItems[value][i].square2.y === this.state.square1.y
                     && this.satisfiableItems[value][i].square1.x === this.state.square2.x
                     && this.satisfiableItems[value][i].square1.y === this.state.square2.y)
@@ -526,7 +530,7 @@ class Game extends React.Component {
      * @returns {boolean}
      */
     isExist() {
-        this.count = 0; //reset count
+        this.count = 0; // reset count
 
         // Initialize 2d array
         this.satisfiableItems = [...Array(this.amount + 1)].fill(null).map(() => []);
@@ -549,19 +553,26 @@ class Game extends React.Component {
         }
 
         return this.count > 0;
-
-
     }
 
     renew() {
         // TODO: save score into log...
+        // / write to file
+        // const txtFile = 'score.txt';
+        // const file = new File(txtFile);
+        // const str = this.state.score;
+        //
+        // file.open('w'); // open file with write access
+        // file.writeln('===========Score========');
+        // file.writeln('Second line of text ' + str);
+        // file.close();
 
-        let _newItems = getBoard(this.row, this.col, this.amount);
+        const _newItems = getBoard(this.row, this.col, this.amount);
         this.setState({
             items: _newItems,
             score: 0,
             reload: 10,
-            time: 360,
+            time: this.time,
             level: 1,
             isNew: true
         });
@@ -624,14 +635,12 @@ class Game extends React.Component {
                 break;
 
             default:
-                //update item's position array
-                this.listPosItem = getListPosItem(this.newItems, this.row, this.col, this.amount);
                 break;
         }
     }
 
     render() {
-         return (
+        return (
             <div className="game">
                 <div className="game-board">
                     <Board
@@ -645,7 +654,7 @@ class Game extends React.Component {
                 <hr/>
 
                 <div className="score-board">
-                    <Timer width={this.state.time} onFinishInterval={this.onTimeout}/>
+                    <Timer width={this.state.time} onFinishInterval={this.onTimeout} isnew={this.state.isNew} />
                     <h2 className={'level'} >Level: {this.state.level}</h2>
                     <h3 className={'score'} >Score: {this.state.score}</h3>
                     <h4 className={'reload'} >Reload Time Count: {this.state.reload}</h4>
