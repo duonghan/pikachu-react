@@ -9,7 +9,7 @@
  */
 export function getListPosItem(table, row, col, amount) {
     // Declare and init 2d array
-    const listPosItems = [...Array(amount + 1)].fill(null).map(() => new Array());
+    const listPosItems = [...Array(amount + 1)].fill(null).map(() => []);
 
     try{
         for(let i = 1; i <= row; i++) {
