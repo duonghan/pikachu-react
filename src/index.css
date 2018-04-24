@@ -76,6 +76,7 @@ ul {
 }
 .game-board {
     width: 70%;
+    alignment: center;
 }
 .score-board {
     margin-left: 20px;
@@ -93,6 +94,7 @@ hr {
     width: 550px;
     border-radius: 25px;
     background-color: #ddd;
+    alignment: center;
 }
 
 .myBar {
@@ -102,6 +104,7 @@ hr {
     text-align: center;
     line-height: 30px;
     color: white;
+    alignment: center;
 }
 
 .level{
@@ -114,4 +117,39 @@ hr {
 
 .reload{
     color: dodgerblue;
+}
+div h2{
+    color: crimson;
+}
+
+/* ScoreTable */
+.divTable{
+    display: table;
+    width: 100%;
+    margin: inherit;
+}
+.divTableRow {
+    display: table-row;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+}
+.divTableCell, .divTableHead {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 3px 10px;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+}
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+.divTableBody {
+    display: table-row-group;
 }
