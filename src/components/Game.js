@@ -6,11 +6,12 @@ import {getListPosItem} from '../functions/Binder';
 import Timer from './Timer';
 import { moveTop2Down, moveDown2Top, moveRight2Left, moveLeft2Right, move3CenterLeftRight, move3CenterTopDown, move3OutLeftRight, move3OutTopDown } from './Level';
 // import { ProgressBar } from 'react-bootstrap';
+import ScoreBoard from "./ScoreBoard";
+import Fireworks from 'fireworks-react';
 
 let i, j, k;  // iterator
 
 class Game extends React.Component {
-
 
     /**
      * @description update items board when reload event is triggered
@@ -351,14 +352,17 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
 
-        this.row = 5;        // size of game board
-        this.col = 4;
+        this.row = 7;        // size of game board
+        this.col = 14;
         this.amount = 36;       // number of pokemon items
         this.lines = [];       // array contain pokemon connected line (temp array for each isExist method running)
         this.lastLines = [];       // array contain
         this.count = 0;        // number of couple satisfying item case
         this.newItems = [];             // 2-dimension (2d) array contain items whenever items state is changed
         this.time = 360;
+        // localStorage.setItem('listScore', JSON.stringify([1000,2000,3000]));
+        this.listScore = localStorage.getItem('listScore') ? JSON.parse(localStorage.getItem('listScore')) : new Array(5);
+        this.listScoreLength = 5;
 
         const _new = getBoard(this.row, this.col, this.amount);   // contain items from generator method.
 
@@ -481,9 +485,9 @@ class Game extends React.Component {
                     && this.satisfiableItems[value][i].square2.x === this.state.square2.x
                     && this.satisfiableItems[value][i].square2.y === this.state.square2.y)
                     || (this.satisfiableItems[value][i].square2.x === this.state.square1.x
-                    && this.satisfiableItems[value][i].square2.y === this.state.square1.y
-                    && this.satisfiableItems[value][i].square1.x === this.state.square2.x
-                    && this.satisfiableItems[value][i].square1.y === this.state.square2.y)
+                        && this.satisfiableItems[value][i].square2.y === this.state.square1.y
+                        && this.satisfiableItems[value][i].square1.x === this.state.square2.x
+                        && this.satisfiableItems[value][i].square1.y === this.state.square2.y)
                 ) {
                     this.lastLines = this.satisfiableItems[value][i].lines.slice();
 
@@ -552,16 +556,7 @@ class Game extends React.Component {
     }
 
     renew() {
-        // TODO: save score into log...
-        // / write to file
-        // const txtFile = 'score.txt';
-        // const file = new File(txtFile);
-        // const str = this.state.score;
-        //
-        // file.open('w'); // open file with write access
-        // file.writeln('===========Score========');
-        // file.writeln('Second line of text ' + str);
-        // file.close();
+        this.saveScore(this.state.score);
 
         const _newItems = getBoard(this.row, this.col, this.amount);
         this.setState({
@@ -575,6 +570,17 @@ class Game extends React.Component {
 
         this.listPosItem = getListPosItem(_newItems, this.row, this.col, this.amount);
         this.satisfiableItems = new Array(this.amount + 1);
+    }
+
+    /**
+     * @description save score into local storage
+     * @param score
+     */
+    saveScore(score){
+        if(score > this.listScore[this.listScoreLength - 1] || this.listScore.length < this.listScoreLength){
+            this.listScore.push(score);
+        }
+        localStorage.setItem("listScore", this.listScore.sort((a,b) => a-b ));
     }
 
     /**
@@ -639,23 +645,28 @@ class Game extends React.Component {
         return (
             <div className="game">
                 <div className="game-board">
+
+                    <Timer width={this.state.time} onFinishInterval={this.onTimeout} isnew={this.state.isNew} />
                     <Board
                         squares = {this.state.items}
                         onClick={this.handleClick}
                         square1={this.state.square1}
                         square2={this.state.square2}
                     />
+                    <Fireworks width={1000} height={1000}></Fireworks>
                 </div>
 
                 <hr/>
 
                 <div className="score-board">
-                    <Timer width={this.state.time} onFinishInterval={this.onTimeout} isnew={this.state.isNew} />
+
                     <h2 className={'level'} >Level: {this.state.level}</h2>
                     <h3 className={'score'} >Score: {this.state.score}</h3>
                     <h4 className={'reload'} >Reload Time Count: {this.state.reload}</h4>
-                    <button onClick={this.reloadHandler}>Reload</button>
+                    {/*<button onClick={this.reloadHandler}>Reload</button>*/}
+                    <ScoreBoard score={this.listScore}/>
                 </div>
+
             </div>
         );
     }
